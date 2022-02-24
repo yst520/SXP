@@ -1,0 +1,48 @@
+#header2{
+    display: flex;
+    flex-flow: nowrap row;
+    width: 1200px;
+    margin:0 auto;
+    height: 120px;
+    // background-color: pink;
+    #logo{
+        width: 300px;
+        height: 100%;
+        overflow: hidden;
+        // background-color: purple;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .icons{
+        line-height: 120px;
+        width: 300px;
+        height: 100%;
+        // background-color: purple;
+        i{
+            color: #fff;
+        }
+    }
+    #search{
+        flex: 1;
+        box-sizing: border-box;
+        padding:30px 40px;
+        .el-input .el-input__inner{
+            border:1px solid #00c65d;
+        }
+        .remen{
+            margin-top: 5px;
+            a{
+                float: left;
+                color: #999;
+                text-decoration: none;
+                margin-right: 10px;
+                font-size: 13px;
+                &:hover{
+                    color: green;
+                }
+            }
+        }
+    }
+}

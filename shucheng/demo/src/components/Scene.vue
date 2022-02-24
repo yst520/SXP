@@ -1,0 +1,54 @@
+<template>
+  <div id="scene">
+    <div class="container">
+      <div class="classify" @mouseover="classifyBtn=true" @mouseout="classifyBtn=false">
+        <span>全部分类</span>
+        <div class="classify-detail" v-show="classifyBtn">
+          <ul>
+            <li> <router-link to="/fruit">新鲜水果</router-link></li>
+            <li>海鲜水产</li>
+            <li>精选肉类</li>
+            <li>冷饮冻食</li>
+            <li>蔬菜蛋品</li>
+          </ul>
+        </div>
+      </div>
+      <div class="scene-detail">
+        <!-- <ul>
+          <li>首页</li>
+          <li>东家佳肴</li>
+          <li>优选</li>
+          <li>试吃</li>
+        </ul> -->
+        <router-link to="/">首页</router-link>
+        <router-link to="/youxuan">优选</router-link>
+        <router-link to="/jiayao">佳肴</router-link>
+        <router-link to="/shichi">试吃</router-link>
+      </div>
+      <!-- 品质保障 -->
+      <div class="pinzhi">
+        <span>品质保障</span>
+        <i class="el-icon-check"></i>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "Scene",
+  components: {},
+  props: [""],
+  data() {
+    return {
+      classifyBtn:false,
+    };
+  },
+  created() {},
+  methods: {
+ 
+  },
+};
+</script>
+<style lang='sass' scoped>
+@import './scene.scss'
+</style>

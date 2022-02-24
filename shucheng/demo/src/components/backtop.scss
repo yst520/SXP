@@ -1,0 +1,23 @@
+#backtop{
+    z-index: 500;
+    position: fixed;
+    bottom: 50px;
+    right:20px;
+    // background-color: red;
+    width: 40px;
+    height: auto;
+    ul li{
+        float: none;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 1px;
+        // background-color:rgba(0,0,0,0.4);
+        &:hover{
+            background-color:#00b277;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
