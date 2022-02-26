@@ -10,25 +10,25 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta:{show:true}
+    meta:{show:true,show2:true}
   },
   {
     path: '/jiayao',
     name: 'Jiayao',
     component: () => import( '../views/jiayao.vue'),
-    meta:{show:true}
+    meta:{show:true,show2:true}
   },
   {
     path: '/shichi',
     name: 'Shichi',
     component: () => import( '../views/shichi.vue'),
-    meta:{show:true}
+    meta:{show:true,show2:true}
   },
   {
     path: '/youxuan',
     name: 'Youxuan',
     component: () => import( '../views/youxuan.vue'),
-    meta:{show:true}
+    meta:{show:true,show2:true}
   },
   {
     path: '/about',
@@ -52,12 +52,26 @@ const routes = [
     path:'/gouwuche',
     name:'Gouwuche',
     component:()=> import('../views/gouwuche.vue'),
-    meta:{show:false}
+    meta:{show:false,show2:true}
+  },{//客服
+    path:'/kefu',
+    name:'Kefu',
+    component:()=> import('../views/kefu.vue'),
+    meta:{show:false,show2:false}
+  },{
+    path:'/login',
+    name:'Login',
+    component:()=> import('../views/login.vue'),
+    meta:{show:false,show2:false}
+  },{
+    path:'/register',
+    name:'Register',
+    component:()=> import('../views/register.vue'),
+    meta:{show:false,show2:false}
   }
 ]
 
 const router = new VueRouter({
-  linkActiveClass:"linkActive",
   mode: 'history',
   base: process.env.BASE_URL,
   routes

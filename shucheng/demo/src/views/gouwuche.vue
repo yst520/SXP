@@ -1,13 +1,16 @@
 <template>
-<!-- eslint-disable -->
+<div id="gwc">
+  <Gsearch/>
   <div class="content shopCart">
     <div class="breadcrumb">
       <el-breadcrumb>
-        <el-breadcrumb-item :to="{ path: '/dashboard' }"
+        <el-breadcrumb-item :to="{ path: '/' }"
           >产品</el-breadcrumb-item
         >
         <el-breadcrumb-item>购物车</el-breadcrumb-item>
       </el-breadcrumb>
+      <div><span>配送至:</span></div>
+      
     </div>
     <!-- Steps -->
     <div class="steps">
@@ -86,25 +89,29 @@
         <div class="left">
           <span>继续购物</span>
           <span>
-            共 <b>{{ tableData.length }}</b> 件商品, 已选择
+            共 <b>{{ totalCount }}</b> 件商品, 已选择
             <b>{{ multipleSelection.length }}</b> 件
           </span>
         </div>
         <div class="right">
           <h3>产品总额：</h3>
-          <span>￥777.00</span>
+          <span>{{totalPrice}}</span>
           <button @click="next">下一步</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
+import Gsearch from '../components/Gsearch.vue'
 export default {
   name: "Gouwuche",
+  components:{Gsearch},
   data() {
     return {
+      // totalCount:0,
       // 下一步
       active: 1,
       tableData: [
@@ -132,10 +139,61 @@ export default {
           number: 1,
           goodTotal: 30,
         },
+        {
+          shopImg:
+            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+          shop: "小米巨能写 黑色 10支装",
+          price: 30,
+          number: 1,
+          goodTotal: 30,
+        },
+        {
+          shopImg:
+            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+          shop: "小米巨能写 黑色 10支装",
+          price: 30,
+          number: 1,
+          goodTotal: 30,
+        },
+        {
+          shopImg:
+            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+          shop: "小米巨能写 黑色 10支装",
+          price: 30,
+          number: 1,
+          goodTotal: 30,
+        },
+        {
+          shopImg:
+            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+          shop: "小米巨能写 黑色 10支装",
+          price: 30,
+          number: 1,
+          goodTotal: 30,
+        },
+        {
+          shopImg:
+            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+          shop: "小米巨能写 黑色 10支装",
+          price: 30,
+          number: 1,
+          goodTotal: 30,
+        },
       ],
       totalPrice: 0,
       multipleSelection: [],
     };
+  },
+  computed:{
+    totalCount:function(){
+      let result=0;
+      for(let i in this.tableData){
+        result+= this.tableData[i].number;
+        // console.log(number)
+      }
+      return result;
+    }
+    
   },
   methods: {
     //   下一步
@@ -204,6 +262,7 @@ export default {
           selection[i].goodTotal = parseInt(selection[i].goodTotal);
         }
         this.totalPrice += selection[i].goodTotal;
+        console.log(this.totalPrice)
       }
     },
   },
@@ -215,13 +274,20 @@ export default {
   margin: 20px auto;
   margin-bottom: 50px;
   .breadcrumb {
+    display: flex;
+    justify-content: space-between;
     margin: 20px 0;
     ::v-deep .el-breadcrumb__inner.is-link {
       color: #bfa548;
     }
+    span{
+      font-weight: 700;
+      color: #999;
+    }
+
   }
   .steps {
-    margin-top: 50px;
+    margin-top: 26px;
     ::v-deep .el-step__head {
       border-color: #d8d8d8;
       color: #fff;
@@ -265,6 +331,11 @@ export default {
     margin-top: 50px;
     position: relative;
     padding-bottom: 100px;
+    // 修改el-table每行hover以后的颜色
+    ::v-deep .el-table--enable-row-hover .el-table__body tr:hover>td{
+      // background-color: #212e3e;
+      background-color:#f1f1f1;
+    }
     ::v-deep .el-input__inner {
       text-align: center;
     }
@@ -305,6 +376,7 @@ export default {
       top: 7px;
     }
     .submitBar {
+      z-index: 200;
       display: flex;
       flex-flow: nowrap row;
       justify-content: space-between;

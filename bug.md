@@ -52,3 +52,16 @@ setTimeout的第一个参数的function用[箭头函数](https://so.csdn.net/so/
 **箭头函数本身没有执行作用域，是继承其父的执行上下文，所以箭头函数的this指向绑定其父的作用域**
 
 完美解决！！
+
+# 返回顶部组件el-backtop无法识别为element-ui组件，且无法实现滚动功能
+
+报错：
+
+![image-20220224154858723](C:\Users\tys\AppData\Roaming\Typora\typora-user-images\image-20220224154858723.png)
+
+解决方法：
+
+https://www.jianshu.com/p/d92ba084085f
+
+自我总结：
+

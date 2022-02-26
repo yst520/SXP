@@ -4,9 +4,10 @@
     width: 1200px;
     margin:0 auto;
     height: 120px;
+    margin-top: 20px;
     // background-color: pink;
     #logo{
-        width: 300px;
+        width: 224px;
         height: 100%;
         overflow: hidden;
         // background-color: purple;
@@ -16,9 +17,11 @@
         }
     }
     .icons{
-        line-height: 120px;
-        width: 300px;
+        width: 224px;
         height: 100%;
+        line-height: 98px;
+        text-align: center;
+       
         // background-color: purple;
         i{
             color: #fff;
@@ -27,7 +30,7 @@
     #search{
         flex: 1;
         box-sizing: border-box;
-        padding:30px 40px;
+        padding:30px 70px;
         .el-input .el-input__inner{
             border:1px solid #00c65d;
         }

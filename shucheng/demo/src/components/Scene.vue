@@ -6,10 +6,10 @@
         <div class="classify-detail" v-show="classifyBtn">
           <ul>
             <li> <router-link to="/fruit">新鲜水果</router-link></li>
-            <li>海鲜水产</li>
-            <li>精选肉类</li>
-            <li>冷饮冻食</li>
-            <li>蔬菜蛋品</li>
+            <li><router-link to="/fruit">新鲜水果</router-link></li>
+            <li><router-link to="/fruit">新鲜水果</router-link></li>
+            <li><router-link to="/fruit">新鲜水果</router-link></li>
+            <li><router-link to="/fruit">新鲜水果</router-link></li>
           </ul>
         </div>
       </div>
@@ -27,8 +27,9 @@
       </div>
       <!-- 品质保障 -->
       <div class="pinzhi">
+        <i class="iconfont icon-zuanshi"></i>
+
         <span>品质保障</span>
-        <i class="el-icon-check"></i>
       </div>
     </div>
   </div>

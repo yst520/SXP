@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue</title>
+	<script src="https://creative.chat/resources/vue/vue-v2.6.12.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div>
+			<input v-model="inputValue" />
+			<button @click="handleSubmit">提交</button>
+		</div>
+		<ul>
+			<todo-item 
+				v-for="(item, index) of list"
+				:key="index"
+				:content="item"
+			>
+			</todo-item>
+		</ul>
+	</div>
+
+	<script>
+		Vue.component('todo-item', {
+			props: ['content'],
+			template: '<li @click="handleClick">{{content}}</li>',
+			methods: {
+				handleClick: function() {
+					alert('clicked')
+				}
+			}
+		})
+
+		new Vue({
+			el: "#root",
+			data: {
+				inputValue: '',
+				list: []
+			},
+			methods: {
+				handleSubmit: function() {
+					this.list.push(this.inputValue)
+					this.inputValue = ''
+				}
+			}
+		})
+	</script>
+</body>
+</html>

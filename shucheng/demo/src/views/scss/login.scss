@@ -1,0 +1,65 @@
+#login{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .zhezhao{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(110, 48, 6, 0.7);
+        .loginForm{
+            width: 410px;
+            height: 500px;
+            margin: 130px auto;
+            text-align: left;
+            color:#fff;
+            h2{
+                display: inline-block;
+                font-size: 16px;
+                color: #fff;
+                border-bottom: 2px solid #ff6600;
+                margin-bottom: 10px;
+            }
+            input{
+                outline: none;
+                
+                width: 400px;
+                height: 40px;
+                box-sizing: border-box;
+                padding-left: 20px;
+                font-size: 15px;
+                border:none;
+                background:rgba(255,255,255,0.2);
+                border-radius: 20px;
+                margin-bottom: 20px;
+                &:focus{
+                    border:1px solid #fff;
+                }
+            }
+            .tishi{
+                font-size: 15px;
+            }
+            button{
+                outline: none;
+                width: 400px;
+                height: 40px;
+                box-sizing: border-box;
+                padding-left: 20px;
+                font-size: 15px;
+                border:none;
+                background-color:#ff6600;
+                border-radius: 20px;
+                margin-bottom: 20px;
+            }
+           
+
+        }
+    }
+}

@@ -8,27 +8,15 @@
       text-color="#666"
       active-text-color="#ed4b4b"
     >
-      <el-submenu index="1">
-        <template slot="title">首页</template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">111</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-submenu index="2">
-        <template slot="title">登录/注册</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-      </el-submenu>
-      <el-submenu index="3">
-        <template slot="title">我的订单</template>
-        <el-menu-item index="3-1">选项1</el-menu-item>
-      </el-submenu>
+      <el-menu-item index="1"><router-link to='/'>首页</router-link></el-menu-item>
+      <el-menu-item index="2"><router-link to='/gowuche'>购物车</router-link></el-menu-item>
+      <el-menu-item index="3"><router-link to='/gowuche'>订单</router-link></el-menu-item>
+      
       <el-submenu index="4">
         <template slot="title">我的会员</template>
         <el-menu-item index="4-1">选项1</el-menu-item>
       </el-submenu>
-
+      <el-menu-item index="5"><router-link to="/login" target="_blank">登录/注册</router-link></el-menu-item>
     </el-menu>
     
   </div>
@@ -47,7 +35,7 @@ export default {
   methods: {},
 };
 </script>
-<style>
-@import url('./header.css');
+<style lang="scss">
+@import './header.scss'
 
 </style>

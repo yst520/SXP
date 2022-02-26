@@ -1,4 +1,5 @@
 #scene {
+    margin-top: 30px;
     width: 100%;
     height: 44px;
     background-color: rgba(255, 255, 255, 0.4);
@@ -67,10 +68,16 @@
 
         .pinzhi {
 
-            background-color: plum;
             width: 200px;
             height: 44px;
             line-height: 44px;
+            i{
+                color: #00b277;
+                margin-right: 10px;
+            }
+            span{
+                color: #00b277;
+            }
         }
     }
 

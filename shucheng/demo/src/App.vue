@@ -1,11 +1,13 @@
 <template>
-  <div id="app">
-    <Header/>
+  <div id="app" class="app">
+    <Header v-show="$route.meta.show2"/>
     <Header2 v-show="$route.meta.show" />
-    <Scene />
+    <Scene v-show="$route.meta.show"/>
     <router-view/>
     <Footer v-show="$route.meta.show"/>
-    <Backtop/>
+    <Backtop />
+    
+
   </div>
 </template>
 <script>
@@ -43,8 +45,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.linkActive{
-  color: green;
-}
+
 
 </style>

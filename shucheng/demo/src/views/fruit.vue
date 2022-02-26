@@ -1,6 +1,5 @@
 <template>
   <div id="fruit">
-    <div class="container">
       <div class="options">
         <ul>
           <li>
@@ -219,7 +218,6 @@
           </li>
         </ul>
       </div>
-    </div>
   </div>
 </template>
 <script>
@@ -282,5 +280,5 @@ export default {
 };
 </script>
 <style lang='sass' scoped>
-@import './fruit.scss'
+@import './scss/fruit.scss'
 </style>

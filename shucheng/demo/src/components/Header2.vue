@@ -4,7 +4,7 @@
       <img src="./img/logo.png" alt="">
     </div>
     <div id="search">
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
+      <el-input v-model="input" placeholder="开启美好生活！"></el-input>
       <div class="remen">
         <a href="">生鲜企采</a>
         <a href="">鸡蛋</a>
@@ -16,7 +16,7 @@
     <div class="icons">
       <router-link to="/gouwuche">购物车</router-link>
       <!-- <el-button type="danger" plain>购物车<i class="el-icon-shopping-cart-2"></i></el-button> -->
-      <el-button type="success" plain>地址<i class="el-icon-s-promotion"></i></el-button>
+      <router-link to="/gouwuche">地址</router-link>
     </div>
   </div>
 </template>

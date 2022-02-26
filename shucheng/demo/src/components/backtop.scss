@@ -10,14 +10,17 @@
         float: none;
         width: 40px;
         height: 40px;
+        line-height: 40px;
+        text-align: center;
         margin-bottom: 1px;
-        // background-color:rgba(0,0,0,0.4);
-        &:hover{
-            background-color:#00b277;
-        }
-        img{
-            width: 100%;
-            height: auto;
+        background-color: #fff;
+        
+        i{
+            font-size: 28px;
+            color: #999;
+            &:hover{
+                color: #00b277;
+            }
         }
     }
 }

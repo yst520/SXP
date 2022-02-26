@@ -1,0 +1,19 @@
+#header{
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+    background-color: red;
+    .el-menu--horizontal>.el-menu-item{
+        line-height: 38px;
+    }
+    .el-menu--horizontal>.el-submenu .el-submenu__title{
+        line-height: 38px;
+        height: 38px;
+    }
+   
+}
+
+
+
+
