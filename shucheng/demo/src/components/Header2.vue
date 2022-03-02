@@ -1,9 +1,9 @@
 <template>
   <div id='header2'>
-    <div id="logo">
+    <div class="logo">
       <img src="./img/logo.png" alt="">
     </div>
-    <div id="search">
+    <div class="search">
       <el-input v-model="input" placeholder="开启美好生活！"></el-input>
       <div class="remen">
         <a href="">生鲜企采</a>

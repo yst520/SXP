@@ -6,7 +6,7 @@
     height: 120px;
     margin-top: 20px;
     // background-color: pink;
-    #logo{
+    .logo{
         width: 224px;
         height: 100%;
         overflow: hidden;
@@ -27,7 +27,7 @@
             color: #fff;
         }
     }
-    #search{
+    .search{
         flex: 1;
         box-sizing: border-box;
         padding:30px 70px;

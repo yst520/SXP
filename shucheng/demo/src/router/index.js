@@ -10,7 +10,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta:{show:true,show2:true}
+    meta:{show:true,show2:true,scene:true}
   },
   {
     path: '/jiayao',
@@ -41,7 +41,7 @@ const routes = [
     path:'/fruit',
     name:'Fruit',
     component: () => import('../views/fruit.vue'),
-    meta:{show:true}
+    meta:{show:true,scene:false,}
   },
   {//选项
     path:'/options',

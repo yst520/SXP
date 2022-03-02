@@ -5,7 +5,7 @@
         <span>全部分类</span>
         <div class="classify-detail" v-show="classifyBtn">
           <ul>
-            <li> <router-link to="/fruit">新鲜水果</router-link></li>
+            <li> <router-link to="/fruit" target="_blank">新鲜水果</router-link></li>
             <li><router-link to="/fruit">新鲜水果</router-link></li>
             <li><router-link to="/fruit">新鲜水果</router-link></li>
             <li><router-link to="/fruit">新鲜水果</router-link></li>

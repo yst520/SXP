@@ -1,8 +1,118 @@
 #register{
-    .top{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    .header,.footer{
+        width: 100%;
+        height: 100px;
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        box-sizing: border-box;
+        padding:0 130px;
         img{
-            width: 280px;
+            width: 180px;
             height: auto;
         }
+        .icons{
+            line-height: 100px;
+            i{
+                color: #0cbd35;
+                font-size: 30px;
+            }
+            span{
+                color: #999;
+                margin-right: 20px;
+            }
+        }
     }
+    .footer{
+        line-height: 100px;
+    }
+    .main{
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        .slogan{
+          position: absolute;
+          left: 100px;
+          top: 100px;
+          width: 500px;
+          height: auto;
+        }
+        .register-bg{
+            width: 100%;
+            height: auto;
+        }
+        .registerForm{
+            position: absolute;
+            right: 300px;
+            top: 50px;
+            width: 300px;
+            height: 600px;
+            color: #fff;
+            text-align: left;
+            h2{
+                font-weight: normal;
+
+                font-size: 40px;
+            }
+            input[type=text]{
+                width: 300px;
+                height: 40px;
+                color: #fff;
+                border:none;
+                outline: none;
+                margin-top: 20px;
+                background: transparent;
+                border-bottom: 2px solid #4a5052;
+                &:focus{
+                    border-bottom:2px solid #fff;
+                }
+            }
+
+            ::-webkit-input-placeholder{
+                color: #fff;
+            }
+            .mima{
+                width: 300px;
+                height: 40px;
+                line-height: 40px;
+                display: flex;
+                justify-content: space-between;
+                a{
+                    color: #0b5642;
+                }
+
+            }
+            // button{
+            //     width: 300px;
+            //     height: 40px;
+            //     border-radius: 14px;
+            //     background: linear-gradient(#83eb6c,#75e459);
+            //     color: #fff;
+            //     font-weight: 700;
+            //     border:none;
+            //     margin-top: 30px;
+            //     font-size: 16px;
+            //     &:hover{
+            //         opacity: 0.9;
+            //     }
+            // }
+            .el-button{
+                width: 300px;
+                margin-top: 20px;
+                height: 40px;
+            }
+        
+        }
+        
+    }
+           
 }

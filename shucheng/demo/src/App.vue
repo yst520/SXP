@@ -2,7 +2,7 @@
   <div id="app" class="app">
     <Header v-show="$route.meta.show2"/>
     <Header2 v-show="$route.meta.show" />
-    <Scene v-show="$route.meta.show"/>
+    <Scene v-show="$route.meta.scene"/>
     <router-view/>
     <Footer v-show="$route.meta.show"/>
     <Backtop />
