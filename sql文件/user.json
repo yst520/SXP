@@ -1,0 +1,25 @@
+{
+  "RECORDS": [
+    {
+      "role": "editor",
+      "username": "editor",
+      "password": "111111",
+      "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+      "introduction": "我只是一个店主"
+    },
+    {
+      "role": "admin",
+      "username": "admin",
+      "password": "123457",
+      "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+      "introduction": "9999"
+    },
+    {
+      "role": "admin",
+      "username": "admin",
+      "password": "123456",
+      "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+      "introduction": "9999"
+    }
+  ]
+}

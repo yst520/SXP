@@ -8,7 +8,10 @@
       "describe": "京东生鲜xPlus会员店 新疆阿克苏冰糖心苹果4.5kg 80-90 生鲜礼盒",
       "pingjia": "11",
       "focus": "11",
-      "type": "apple"
+      "type": "apple",
+      "kucun": "228",
+      "xiaoliang": "22",
+      "biaoqian": "新鲜"
     },
     {
       "id": "2",
@@ -18,7 +21,10 @@
       "describe": "新疆特级阿克苏冰糖心苹果4.5kg 80-90mm 生鲜水果礼盒新老包装随机发",
       "pingjia": "88",
       "focus": "33",
-      "type": "apple"
+      "type": "apple",
+      "kucun": "232",
+      "xiaoliang": "45",
+      "biaoqian": "新鲜"
     },
     {
       "id": "3",
@@ -28,7 +34,10 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
+      "type": "apple",
+      "kucun": "58",
+      "xiaoliang": "89",
+      "biaoqian": "新鲜"
     },
     {
       "id": "4",
@@ -38,7 +47,10 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
+      "type": "apple",
+      "kucun": "12",
+      "xiaoliang": "66",
+      "biaoqian": "新鲜"
     },
     {
       "id": "5",
@@ -48,8 +60,12 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
-    },{
+      "type": "apple",
+      "kucun": "78",
+      "xiaoliang": "123",
+      "biaoqian": "新鲜"
+    },
+    {
       "id": "6",
       "name": "33",
       "img": "334",
@@ -57,8 +73,12 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
-    },{
+      "type": "apple",
+      "kucun": "90",
+      "xiaoliang": "348",
+      "biaoqian": "新鲜"
+    },
+    {
       "id": "7",
       "name": "33",
       "img": "334",
@@ -66,8 +86,12 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
-    },{
+      "type": "apple",
+      "kucun": "334",
+      "xiaoliang": "156",
+      "biaoqian": "新鲜"
+    },
+    {
       "id": "8",
       "name": "33",
       "img": "334",
@@ -75,8 +99,12 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
-    },{
+      "type": "apple",
+      "kucun": "441",
+      "xiaoliang": "446",
+      "biaoqian": "新鲜"
+    },
+    {
       "id": "9",
       "name": "33",
       "img": "334",
@@ -84,8 +112,12 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
-    },{
+      "type": "apple",
+      "kucun": "674",
+      "xiaoliang": "782",
+      "biaoqian": "新鲜"
+    },
+    {
       "id": "10",
       "name": "33",
       "img": "334",
@@ -93,8 +125,12 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
-    },{
+      "type": "apple",
+      "kucun": "687",
+      "xiaoliang": "451",
+      "biaoqian": "新鲜"
+    },
+    {
       "id": "11",
       "name": "33",
       "img": "334",
@@ -102,7 +138,10 @@
       "describe": "新疆阿克苏冰糖心苹果 春节日送礼年货节新鲜水果红富士时令丑苹果",
       "pingjia": "56",
       "focus": "12",
-      "type": "apple"
+      "type": "apple",
+      "kucun": "921",
+      "xiaoliang": "290",
+      "biaoqian": "新鲜"
     }
-]
+  ]
 }
