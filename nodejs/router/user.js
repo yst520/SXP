@@ -30,7 +30,7 @@ router.get('/info', (req, res, next) => {
   findUser(username).then((user) => {
     console.log(user);  //不需要处理异常，因为默认情况会抛给自定义异常处理
     if (user) {
-      user.roles = [user.role]
+      user.roles = [user.roles]
       new Result(user, '登录成功').success(res)
     } else {
       new Result('登录失败').fail(res)

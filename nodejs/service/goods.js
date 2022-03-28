@@ -8,12 +8,12 @@ async function getGoodsList(query) {
   // console.log(query);
   const {
     // 默认值page=1,pageSize=20
-    id, name, page = 1, pageSize = 4, sort
+    id, name, page = 1, pageSize = 4, sort,token
   } = query
   // 偏移多少个数据量，page=0 offset=0查询第1个  
   // page=1 offset=20 查询第21个
   const offset = (page - 1) * pageSize
-  let scoreSql = `select * from goodslist`
+  let scoreSql = `select * from goodslist where username='${token}'`
   let where = 'where'
 
   // where  第二个参数 ：key  第三个：value
@@ -31,7 +31,7 @@ async function getGoodsList(query) {
     scoreSql = `${scoreSql} order by \`${colunm}\` ${order}`
   }
   // 统计一共多少电子书
-  let countSql = `select count(*) as count from goodslist`
+  let countSql = `select count(*) as count from goodslist where username='${token}'`
   // 有查询条件
   if (where != 'where') {
     countSql = `${countSql} ${where}`
@@ -88,12 +88,13 @@ async function getXiajiaList(query) {
   // console.log(query);
   const {
     // 默认值page=1,pageSize=20
-    id, name, page = 1, pageSize = 10, sort
+    id, name, page = 1, pageSize = 10, sort,token
   } = query
   // 偏移多少个数据量，page=0 offset=0查询第1个  
   // page=1 offset=20 查询第21个
   const offset = (page - 1) * pageSize
-  let scoreSql = `select * from goodslist where state='已下架'`
+  const username=token
+  let scoreSql = `select * from record where username='${username}' and state='已下架'`
   let where = 'where'
 
   // where  第二个参数 ：key  第三个：value
@@ -111,7 +112,7 @@ async function getXiajiaList(query) {
     scoreSql = `${scoreSql} order by \`${colunm}\` ${order}`
   }
   // 统计一共多少审核数据
-  let countSql = `select count(*) as count from goodslist where state='已下架'`
+  let countSql = `select count(*) as count from record where username='${username}' and state='已下架'`
   // 有查询条件
   if (where != 'where') {
     countSql = `${countSql} ${where}`
@@ -124,6 +125,47 @@ async function getXiajiaList(query) {
 
   return { list, count: count[0].count, page, pageSize }
 }
+async function getDingdanList(query) {
+  // console.log(query);
+  const {
+    // 默认值page=1,pageSize=10
+    id, name, page = 1, pageSize = 10, sort,token
+  } = query
+  // 偏移多少个数据量，page=0 offset=0查询第1个  
+  // page=1 offset=20 查询第21个
+  const offset = (page - 1) * pageSize
+  let scoreSql = `select * from dingdan where dianpu='${token}'`
+  let where = 'where'
+
+  // where  第二个参数 ：key  第三个：value
+  id && (where = db.and(where, "id", id))
+  // 模糊查询
+  name && (where = db.andLike(where, 'name',name))
+  if (where !== 'where') {
+    scoreSql = `${scoreSql} ${where}`
+  }
+  if (sort) {
+    // symbol:第一个字符
+    const symbol = sort[0]
+    const colunm = sort.slice(1, sort.length)
+    const order = symbol === '+' ? 'asc' : 'desc'
+    scoreSql = `${scoreSql} order by \`${colunm}\` ${order}`
+  }
+  // 统计一共多少电子书
+  let countSql = `select count(*) as count from dingdan where dianpu='${token}'`
+  // 有查询条件
+  if (where != 'where') {
+    countSql = `${countSql} ${where}`
+  }
+  const count = await db.querySql(countSql)
+  console.log("count", count);
+  scoreSql = `${scoreSql} limit ${pageSize} offset ${offset}`
+  const list = await db.querySql(scoreSql)
+
+
+  return { list, count: count[0].count, page, pageSize }
+}
+
 function exists(body) {
   // return false
   const { id } = body
@@ -250,4 +292,4 @@ function isNew(params) {
     resolve()
   })
 }
-module.exports = { getGoodsList,getShenheList,getXiajiaList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }
+module.exports = { getGoodsList,getShenheList,getXiajiaList,getDingdanList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }

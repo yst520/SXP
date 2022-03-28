@@ -4,7 +4,7 @@ const boom = require('boom')
 const Result = require('../model/Result')
 const router = express.Router()
 // const { insert } = require('../db/index')
-const {getGoodsList,getShenheList,getXiajiaList,insertGoods,sendAdmin,updateGoods,updateShenhe,isNew,deleteGoods,deleteShenhe} = require('../service/goods')
+const {getGoodsList,getShenheList,getXiajiaList,getDingdanList,insertGoods,sendAdmin,updateGoods,updateShenhe,isNew,deleteGoods,deleteShenhe} = require('../service/goods')
 
 router.get('/goodsList',(req,res,next)=>{
   getGoodsList(req.query).then(({list,count,page,pageSize})=>{
@@ -29,6 +29,15 @@ router.get('/xiajiaList',(req,res,next)=>{
     next(boom.badImplementation(err))
   })
 })
+//订单数据
+router.get('/dingdanList',(req,res,next)=>{
+  getDingdanList(req.query).then(({list,count,page,pageSize})=>{
+    new Result({list,count,page:+page,pageSize:+pageSize},'获取订单数据成功').success(res)
+  }).catch(err=>{ 
+    next(boom.badImplementation(err))
+  })
+})
+
 router.post('/insertGoods',(req,res,next)=>{
   // console.log(req.body);
   // new Result().success(res)
