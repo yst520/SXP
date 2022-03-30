@@ -1,20 +1,23 @@
 <template>
   <div class="home">
     <Swiper/>
-    <Recommended/>
     
+    <Delicious/>
+    <Recommended/>
   </div>
 </template>
 
 <script>
 import Swiper from '../components/Swiper.vue'
 import Recommended from '../components/Recommended.vue'
+import Delicious from '../components/Delicious.vue'
 
 export default {
 
   name: 'Home',
   components: {
     Swiper,Recommended,
+    Delicious,
   }
 }
 </script>

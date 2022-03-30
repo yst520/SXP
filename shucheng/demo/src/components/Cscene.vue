@@ -1,15 +1,18 @@
 <template>
   <div id="cscene">
     <div class="container">
-      <div class="classify" @mouseover="classifyBtn=true" @mouseout="classifyBtn=false">
+      <div class="classify">
+      <!-- <div class="classify" @mouseover="classifyBtn=true" @mouseout="classifyBtn=false"> -->
         <span>全部分类</span>
-        <div class="classify-detail" v-show="classifyBtn">
+        <!-- <div class="classify-detail" v-show="classifyBtn"> -->
+        <div class="classify-detail2">
           <ul>
-            <li> <router-link to="/fruit">新鲜水果</router-link></li>
-            <li><router-link to="/fruit">新鲜水果</router-link></li>
-            <li><router-link to="/fruit">新鲜水果</router-link></li>
-            <li><router-link to="/fruit">新鲜水果</router-link></li>
-            <li><router-link to="/fruit">新鲜水果</router-link></li>
+            <li>222</li>
+            <!-- <li><router-link to="/fruit">新鲜水果</router-link></li> -->
+            <!-- <li><router-link to="/fruit">新鲜水果</router-link></li> -->
+            <!-- <li><router-link to="/fruit">新鲜水果</router-link></li> -->
+            <!-- <li><router-link to="/fruit">新鲜水果</router-link></li> -->
+            <!-- <li><router-link to="/fruit">新鲜水果</router-link></li> -->
           </ul>
         </div>
       </div>
@@ -51,5 +54,5 @@ export default {
 };
 </script>
 <style lang='sass' scoped>
-@import './cscene.scss'
+@import './scss/cscene.scss'
 </style>

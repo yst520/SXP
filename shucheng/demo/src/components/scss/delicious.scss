@@ -1,0 +1,218 @@
+#Delicious {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+    background-color: #fff;
+
+    .container {
+        overflow: visible;
+
+        .d-header {
+            width: 100%;
+            height: 63px;
+            margin-top: 60px;
+            background: url('/home/delicious_head_bg.png')no-repeat;
+            background-size: 100% auto;
+            background-position: 0 auto;
+
+            .d-header-title {
+                width: 284px;
+                height: 63px;
+                margin: 0 auto;
+
+                >h3 {
+                    height: 42px;
+                    line-height: 42px;
+                    font-size: 28px;
+                    font-weight: 400;
+                    color: #222;
+                    overflow: hidden;
+
+                    i {
+                        font-style: italic;
+                        margin: 0 10px;
+                        color: #909090;
+                        font-size: 24px;
+                    }
+                }
+            }
+
+        }
+
+        .d-body {
+            position: relative;
+            width: 100%;
+
+            .tab {
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                height: 470px;
+
+                .tab-title {
+                    width: 100%;
+                    text-align: center;
+                    height: 70px;
+                    line-height: 70px;
+
+                    ul {
+                        margin-left: 400px;
+
+                        li {
+                            line-height: 67px;
+                            box-sizing: border-box;
+                            font-size: 20px;
+                            color: #222;
+                            cursor: pointer;
+                            margin-right: 24px;
+
+                            &:nth-child(1) {
+                                border-bottom: 4px solid #000;
+                            }
+                        }
+
+                    }
+
+                }
+
+                .tab-body {
+                    position: relative;
+                    width: 100%;
+                    height: 400px;
+                    text-align: left;
+
+                    .tab_content_title {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        color: #fff;
+                        padding: 72px 0 0 50px;
+
+                        h1 {
+                            font-size: 30px;
+                        }
+
+                        p {
+                            margin-top: 20px;
+                        }
+
+                        img {
+                            position: absolute;
+                            width: 480px;
+                            height: 200px;
+                            bottom: -295px;
+                            right: -170px;
+
+                        }
+                    }
+
+                    .tab_content {
+                        position: absolute;
+                        right: 20px;
+                        top: 40px;
+                        border-radius: 10px;
+                        width: 790px;
+                        height: 285px;
+                        overflow: hidden;
+                        background-color: #fff;
+
+                        .prev,
+                        .next {
+                            z-index: 4;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 20px;
+                            height: 50px;
+                            line-height: 50px;
+                            background-color: #cccccc;
+                        }
+
+                        .prev:hover,
+                        .next:hover {
+                            background-color: #999;
+                        }
+
+                        .prev {
+                            left: 0;
+                        }
+
+                        .next {
+                            right: 0;
+                        }
+
+                        i {
+                            font-size: 20px;
+                            color: #fff;
+                        }
+
+                        ul {
+                            position: absolute;
+                            top: 0;
+                            height: 285px;
+                            width: 1188px;
+
+                            li {
+                                float: left;
+                                width: 198px;
+                                height: 100%;
+                                box-sizing: border-box;
+                                padding: 12px 20px 22px;
+
+                                img {
+                                    width: 150px;
+                                    height: 150px;
+                                }
+
+                                p {
+                                    text-overflow: -o-ellipsis-lastline;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                }
+
+                                .content-bottom {
+                                    margin-top: 14px;
+
+                                    .price {
+                                        float: left;
+                                        font-size: 20px;
+                                        color: #ff541f;
+
+                                        &::before {
+                                            font-size: 15px;
+                                            content: '￥';
+                                            color: #ff541f;
+                                        }
+                                    }
+
+                                    .haoping {
+                                        float: right;
+                                        font-size: 14px;
+                                        margin-right: 7px;
+                                        color: #909090;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tab-bg {
+                position: absolute;
+                left: -119px;
+                top: -26px;
+                width: 1339px;
+                height: 496px;
+                background: url('/home/tab_body_bg.png')0 0 no-repeat;
+
+            }
+        }
+    }
+}

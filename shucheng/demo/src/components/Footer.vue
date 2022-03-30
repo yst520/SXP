@@ -18,5 +18,5 @@
   }
 </script>
 <style lang='sass' scoped>
-@import './footer.scss'
+@import './scss/footer.scss'
 </style>

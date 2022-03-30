@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes = [
   
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home,
     meta:{show:true,show2:true,scene:true}
@@ -19,16 +19,16 @@ const routes = [
     meta:{show:true,show2:true}
   },
   {
-    path: '/shichi',
+    path: '/',
     name: 'Shichi',
     component: () => import( '../views/shichi.vue'),
-    meta:{show:true,show2:true}
+    meta:{show:true,show2:true,scene:true}
   },
   {
     path: '/youxuan',
     name: 'Youxuan',
     component: () => import( '../views/youxuan.vue'),
-    meta:{show:true,show2:true}
+    meta:{show:true,show2:true,}
   },
   {
     path: '/about',

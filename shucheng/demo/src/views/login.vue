@@ -1,9 +1,9 @@
 <template>
   <div id="login">
-    <img src="../static/bg/login-bg.jpg" alt="" />
+    <img src="/bg/login-bg.jpg" alt="" />
     <div class="zhezhao">
       <div class="loginForm">
-        <img class="logoImg" src="../static/logo2.png" alt="" />
+        <img class="logoImg" src="../assets/logo.png" alt="" />
         <h2>天鲜派账号登录</h2>
         <div class="content">
           <el-input

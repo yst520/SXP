@@ -35,6 +35,6 @@
   }
 </script>
 <style lang='sass'>
-@import './header2.scss'
+@import './scss/header2.scss'
 
 </style>

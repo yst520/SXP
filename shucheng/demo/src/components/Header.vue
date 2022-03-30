@@ -36,6 +36,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import './header.scss'
+@import './scss/header.scss'
 
 </style>

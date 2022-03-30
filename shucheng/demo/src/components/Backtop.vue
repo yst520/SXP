@@ -33,5 +33,5 @@ export default {
 };
 </script>
 <style lang='sass' scoped>
-@import './backtop.scss'
+@import './scss/backtop.scss'
 </style>

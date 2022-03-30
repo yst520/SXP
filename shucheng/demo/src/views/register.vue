@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="main">
-      <img class="slogan" src="../static/bg/register-biaoyu.png" alt="">
-      <img class="register-bg" src="../static/bg/login-bg.jpg" alt="">
+      <img class="slogan" src="/bg/register-biaoyu.png" alt="">
+      <img class="register-bg" src="/bg/login-bg.jpg" alt="">
       <div class="registerForm">
         <h2>欢迎注册！</h2>
         <input type="text" autofocus placeholder="请输入手机号">

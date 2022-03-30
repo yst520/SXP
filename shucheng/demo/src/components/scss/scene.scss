@@ -1,0 +1,162 @@
+#scene {
+    width: 100%;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    .container {
+        display: flex;
+        flex-flow: nowrap row;
+        overflow: visible;
+
+        .classify {
+            position: relative;
+            width: 200px;
+            height: 44px;
+            background-color: #000;
+            line-height: 44px;
+
+            >span {
+                color: #fff;
+                font-size: 16px;
+            }
+
+            .classify-detail {
+                position: absolute;
+                top: 44px;
+                left: 0px;
+                z-index: 100;
+                width: 200px;
+                height: 400px;
+                background-color: #fffbf2;
+
+                // transform: translateX(-50%);
+                ul li {
+                    position: relative;
+                    float: none;
+                    color: #fff;
+                    height: 80px;
+                    box-sizing: border-box;
+                    padding: 18px 0 0 40px;
+                    text-align: left;
+                    margin: 0 10px;
+                    border-top: 1px dotted #ddd;
+
+                    &:hover {
+                        border-bottom: 2px solid #dddddd;
+                        background-color: #fff;
+                    }
+
+                    i {
+                        position: absolute;
+                        left: 5px;
+                        top: 30px;
+                        width: 26px;
+                        height: 26px;
+                        background: url('/home/fresh_icons.png');
+                        background-size: 82px 54px;
+                        background-repeat: no-repeat;
+                    }
+
+                    .item_icon1 {
+                        background-position: 0 0;
+
+                    }
+
+                    .item_icon2 {
+                        background-position: -28px 0;
+                    }
+
+                    .item_icon3 {
+                        background-position: 0 -28px;
+                    }
+
+                    .item_icon4 {
+                        background-position: -28px -28px;
+                    }
+
+                    .item_icon5 {
+                        background-position: -56px 0;
+                    }
+
+                    a {
+                        position: relative;
+                        text-decoration: none;
+                        color: #222;
+                        font-weight: 700;
+
+                        &::after {
+                            content: ">";
+                            position: absolute;
+                            left: 120px;
+                            top: 0;
+                            height: 19px;
+                            line-height: 19px;
+                            font-family: simsun;
+                        }
+                    }
+
+                    >div {
+                        line-height: 0px;
+
+                        >span {
+                            padding: 0 5px;
+                            border-right: 1px solid #ccc;
+                            color: #999;
+                            font-size: 12px;
+                        }
+
+                        >span:nth-child(1) {
+                            padding-left: 0;
+                        }
+
+                        >span:nth-child(3) {
+                            border-right: none;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .scene-detail {
+            flex: 1;
+            text-align: left;
+            // background-color: palevioletred;
+
+            a {
+                // margin-left: 20px;
+                padding: 0 30px;
+                border-right: 3px solid #000;
+                line-height: 44px;
+                text-decoration: none;
+                color: #000;
+                font-size: 16px;
+                text-align: left;
+
+                &:hover {
+                    color: #00c65d;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+
+        .pinzhi {
+            width: 200px;
+            height: 44px;
+            line-height: 44px;
+
+            i {
+                color: #00b277;
+                margin-right: 10px;
+            }
+
+            span {
+                color: #00b277;
+            }
+        }
+    }
+
+}

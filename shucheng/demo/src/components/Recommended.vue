@@ -18,5 +18,5 @@
   }
 </script>
 <style lang='sass' scoped>
-@import './recommended.scss'
+@import './scss/recommended.scss'
 </style>

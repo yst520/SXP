@@ -1,9 +1,8 @@
-#scene {
-    margin-top: 30px;
+#cscene {
+    margin-top: 20px;
     width: 100%;
-    height: 44px;
-    background-color: rgba(255, 255, 255, 0.4);
-
+    height: 38px;
+    border-bottom:2px solid #00c65d;
     .container {
         display: flex;
         flex-flow: nowrap row;
@@ -12,9 +11,9 @@
         .classify {
             position: relative;
             width: 200px;
-            height: 44px;
-            background-color: #333;
-            line-height: 44px;
+            height: 38px;
+            background-color: #00c65d;
+            line-height: 38px;
             span {
                 color: #fff;
                 font-size: 16px;
@@ -22,7 +21,7 @@
             }
             .classify-detail {
                 position: absolute;
-                top: 44px;
+                top: 38px;
                 left: 0px;
                 z-index: 100;
                 width: 200px;
@@ -50,15 +49,15 @@
             a {
                 // margin-left: 20px;
                 padding: 0 30px;
-                border-right: 3px solid #000;
-                line-height: 44px;
+                border-right: 3px solid #00c65d;
+                line-height: 38px;
                 text-decoration: none;
                 color: #000;
                 font-size: 16px;
                 text-align: left;
 
                 &:hover {
-                    color: green;
+                   color: #00c65d;
                 }
                 &:last-child{
                     border-right:none;
@@ -69,8 +68,8 @@
         .pinzhi {
 
             width: 200px;
-            height: 44px;
-            line-height: 44px;
+            height: 38px;
+            line-height: 38px;
             i{
                 color: #00b277;
                 margin-right: 10px;
