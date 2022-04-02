@@ -7,28 +7,34 @@ Vue.use(VueRouter)
 const routes = [
   
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home,
     meta:{show:true,show2:true,scene:true}
   },
   {
-    path: '/jiayao',
-    name: 'Jiayao',
-    component: () => import( '../views/jiayao.vue'),
-    meta:{show:true,show2:true}
+    path: '/tejia',
+    name: 'Tejia',
+    component: () => import( '../views/tejia.vue'),
+    meta:{show:true,show2:true,scene:true}
   },
   {
-    path: '/',
+    path: '/shichi',
     name: 'Shichi',
     component: () => import( '../views/shichi.vue'),
     meta:{show:true,show2:true,scene:true}
   },
+  // {
+  //   path: '/',
+  //   name: 'Pubuliu',
+  //   component: () => import( '../views/pubuliu.vue'),
+  //   meta:{show:true,show2:true,scene:true}
+  // },
   {
     path: '/youxuan',
     name: 'Youxuan',
     component: () => import( '../views/youxuan.vue'),
-    meta:{show:true,show2:true,}
+    meta:{show:true,show2:true,scene:true,}
   },
   {
     path: '/about',
@@ -49,6 +55,11 @@ const routes = [
     component:()=> import('../views/options.vue')
   },
   {//购物车
+    path:'/collect',
+    name:'Collect',
+    component:()=> import('../views/collect.vue'),
+    meta:{show:false,show2:true}
+  },{//收藏夹
     path:'/gouwuche',
     name:'Gouwuche',
     component:()=> import('../views/gouwuche.vue'),

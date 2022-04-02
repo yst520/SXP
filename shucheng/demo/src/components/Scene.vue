@@ -31,9 +31,9 @@
           <li>试吃</li>
         </ul> -->
         <router-link to="/">首页</router-link>
-        <router-link to="/youxuan">优选</router-link>
-        <router-link to="/jiayao">佳肴</router-link>
-        <router-link to="/shichi">试吃</router-link>
+        <router-link to="/youxuan">优选推荐</router-link>
+        <router-link to="/tejia">当天特价</router-link>
+        <router-link to="/shichi">鲜产试吃</router-link>
       </div>
       <!-- 品质保障 -->
       <div class="pinzhi">

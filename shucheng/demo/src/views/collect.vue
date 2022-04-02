@@ -1,11 +1,11 @@
 <template>
-  <div id=''>
-    jiyao 页面
+  <div id='collect'>
+    收藏夹
   </div>
 </template>
 <script>
   export default {
-    name:'Jiayao',
+    name:'Collect',
     components: {},
     props:[''],
     data () {

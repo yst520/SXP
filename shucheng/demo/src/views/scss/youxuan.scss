@@ -1,0 +1,298 @@
+#youxuan {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+
+    .header-box {
+        position: relative;
+        width: 100%;
+        height: 536px;
+
+        .lunbo-box {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #0b0c0c url('/home/footer_bg.jpg') 0 0 no-repeat;
+
+            .youxuan-title {
+                z-index: 2;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+                width: 334px;
+                height: 108px;
+                overflow: hidden;
+
+                h2 {
+
+                    width: 60px;
+                    height: 27px;
+                    margin: 14px auto;
+                    background: url('/youxuan/logo-youxuan.png')0 0 no-repeat;
+                    background-size: 100% 100%;
+                }
+
+                p {
+                    color: #fff;
+                }
+            }
+
+            .iconBar {
+                width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
+
+                li {
+                    position: relative;
+                    margin-right: 32px;
+                    width: 72px;
+                    padding: 33px 0 33px 50px;
+
+                    i {
+                        float: left;
+                        margin-top: 5px;
+                        margin-right: 10px;
+                        font-size: 32px;
+                        color: #909090;
+                    }
+
+                    span {
+                        float: left;
+                        display: block;
+                        color: #909090;
+                        width: 30px;
+                        font-size: 14px;
+                    }
+
+                    &:nth-child(3) {
+                        margin-right: 268px;
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    &:nth-child(6) {
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        right: -45px;
+                        top: 50%;
+                        margin-top: -3px;
+                        width: 6px;
+                        height: 6px;
+                        -moz-border-radius: 6px;
+                        border-radius: 6px;
+                        background: #909090;
+
+                    }
+                }
+            }
+
+            .y-swiper {
+                z-index: 5;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 104px;
+                width: 1200px;
+                height: 400px;
+
+                // 轮播图button宽度
+
+            
+
+
+            }
+
+            .lunbo-bg1 {
+                position: absolute;
+                right: 102px;
+                bottom: -111px;
+                width: 98px;
+                height: 117px;
+                background: url('/youxuan/lunbo_bg1.png')no-repeat;
+                background-position: -402px 0;
+            }
+
+            .lunbo-bg2 {
+                position: absolute;
+                left: -64px;
+                bottom: -133px;
+                width: 402px;
+                height: 286px;
+                background: url('/youxuan/lunbo_bg1.png')no-repeat;
+                background-position: 0 0;
+            }
+
+        }
+
+    }
+
+    .container {
+        position: relative;
+        overflow: visible;
+
+        .d-header {
+            width: 100%;
+            height: 63px;
+            margin-top: 60px;
+            background: url('/home/delicious_head_bg.png')no-repeat;
+            background-size: 100% auto;
+            background-position: 0 auto;
+
+            .d-header-title {
+                width: 284px;
+                height: 63px;
+                margin: 0 auto;
+
+                >h3 {
+                    height: 42px;
+                    line-height: 42px;
+                    font-size: 28px;
+                    font-weight: 400;
+                    color: #222;
+                    overflow: hidden;
+
+                    i {
+                        font-style: italic;
+                        margin: 0 10px;
+                        color: #909090;
+                        font-size: 24px;
+                    }
+                }
+            }
+
+        }
+
+        .youpinList {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 30px 0 100px 0;
+
+            li {
+                width: 400px;
+                height: auto;
+                box-sizing: border-box;
+                padding: 10px;
+
+
+                .el-card {
+                    .y-title {
+                        position: relative;
+                        font-size: 18px;
+                        color: #b59a69;
+
+                        span {
+                            font-size: 18px;
+
+                            &:nth-child(1) {
+                                font-weight: 700;
+                            }
+                        }
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: -9px;
+                            width: 12px;
+                            height: 14px;
+                            background: url('/youxuan/biaodian.png');
+                            background-position: 0 -27px;
+                            background-size: 60px 39px;
+                            background-repeat: no-repeat;
+                        }
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            right: -9px;
+                            width: 12px;
+                            height: 14px;
+                            background: url('/youxuan/biaodian.png');
+                            background-repeat: no-repeat;
+                            background-size: 60px 39px;
+                            background-position: -12px -27px;
+                        }
+                    }
+
+                    .describe {
+                        text-align: left;
+                        font-size: 18px;
+                        // font-weight: 700;
+                        color: #999;
+                        // 两行
+                        text-overflow: -o-ellipsis-lastline;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .price {
+                        margin-top: 12px;
+                        text-align: left;
+                        font-size: 24px;
+                        color: #ff541f;
+
+                        &::before {
+                            content: '￥';
+
+                        }
+                    }
+
+                    .imgBox {
+                        position: relative;
+                        width: 200px;
+                        height: 200px;
+                        margin: 0 auto;
+
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 200px;
+                            height: 200px;
+                            // transition: all .25s ease-in-out;
+
+                            // &:hover {
+                            //     transform: translateY(-5px);
+
+                            // }
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        .bg1 {
+            position: absolute;
+            top: 40px;
+            left: -405px;
+            width: 570px;
+            height: 507px;
+            background: url('/youxuan/more_bg1.png') 0 0 no-repeat;
+        }
+
+    }
+
+
+
+
+
+
+}

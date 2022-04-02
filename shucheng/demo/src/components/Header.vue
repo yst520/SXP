@@ -9,8 +9,8 @@
       active-text-color="#ed4b4b"
     >
       <el-menu-item index="1"><router-link to='/'>首页</router-link></el-menu-item>
-      <el-menu-item index="2"><router-link to='/gowuche'>购物车</router-link></el-menu-item>
-      <el-menu-item index="3"><router-link to='/gowuche'>订单</router-link></el-menu-item>
+      <el-menu-item index="2"><router-link to='/gouwuche'>购物车</router-link></el-menu-item>
+      <el-menu-item index="3"><router-link to='/dingdan'>订单</router-link></el-menu-item>
       
       <el-submenu index="4">
         <template slot="title">我的会员</template>

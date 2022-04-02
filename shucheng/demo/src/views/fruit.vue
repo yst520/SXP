@@ -70,24 +70,24 @@
     </div>
     <div class="goods">
       <ul>
-        <li>
+        <li v-for="(item,index) in fruitList" :key="index">
           <div class="goods_img">
-            <img src="../static/pg1.jpg" alt="" />
+            <img :src="require('../static/'+item.img+'.jpg')" alt="" />
           </div>
           <div class="goods_introduce">
             <button>热售</button>
-            <h4>￥123</h4>
+            <h4>{{item.price}}</h4>
             <span class="zhe">4.4折</span>
             <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
+              <p>{{item.describe}}
+                <!-- 【JD物流】新疆阿克苏冰糖心苹果
+                春节日送礼年货节新鲜水果红富士时令丑苹果 -->
               </p>
             </div>
             <div class="label"><span>关注</span><span>加入购物车</span></div>
           </div>
         </li>
-        <li>
+        <!-- <li>
           <div class="goods_img">
             <img src="../static/pg2.jpg" alt="" />
           </div>
@@ -222,12 +222,13 @@
             </div>
             <div class="label"><span>关注</span><span>加入购物车</span></div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
 </template>
 <script>
+
 import Cscene from "../components/Cscene.vue";
 export default {
   name: "Fruit",
@@ -235,6 +236,16 @@ export default {
   props: [""],
   data() {
     return {
+      listLoading: false,
+      total: 0,
+      listQuery: {
+        page: 1,
+        limit: 10,
+        importance: undefined,
+        title: undefined,
+        type: undefined,
+        sort: "+id",
+      },
       currentPage4: 4,
       activeItem: 0,
       pinpaiData: [
@@ -281,10 +292,74 @@ export default {
         { text: "国产/进口" },
         { text: "阿克苏苹果单果果径" },
       ],
+      fruitList:[
+        {
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg2',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg3',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg4',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg5',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg6',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },{
+          img:'pg1',
+          price:'123.00',
+          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+        },
+      ]
     };
   },
-  created() {},
+ 
   methods: {
+    
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },

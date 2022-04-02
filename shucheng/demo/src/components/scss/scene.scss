@@ -121,6 +121,9 @@
         .scene-detail {
             flex: 1;
             text-align: left;
+            .router-link-active{
+                color: #00c65d;
+            }
             // background-color: palevioletred;
 
             a {

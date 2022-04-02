@@ -38,9 +38,9 @@
             </div>
           </div>
         </div>
-        <div class="kf-news" style="background-color: yellow"></div>
+        <!-- <div class="kf-news" style="background-color: yellow"></div>
         <div class="kf-news" style="background-color: red"></div>
-        <div class="kf-news" style="background-color: purple"></div>
+        <div class="kf-news" style="background-color: purple"></div> -->
       </div>
     </div>
     <!-- 弹框 -->

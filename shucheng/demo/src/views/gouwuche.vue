@@ -1,119 +1,135 @@
 <template>
-<div id="gwc">
-  <Gsearch/>
-  <div class="content shopCart">
-    <div class="breadcrumb">
-      <el-breadcrumb>
-        <el-breadcrumb-item :to="{ path: '/' }"
-          >产品</el-breadcrumb-item
+  <div id="gwc">
+    <Gsearch />
+    <div class="content shopCart">
+      <div class="breadcrumb">
+        <el-breadcrumb>
+          <el-breadcrumb-item :to="{ path: '/' }">产品</el-breadcrumb-item>
+          <el-breadcrumb-item>购物车</el-breadcrumb-item>
+        </el-breadcrumb>
+        <div><span>配送至:</span></div>
+      </div>
+      <!-- Steps -->
+      <div class="steps">
+        <el-steps :active="active" align-center>
+          <el-step title="购物车"></el-step>
+          <el-step title="订单信息"></el-step>
+          <el-step title="订单支付"></el-step>
+          <el-step title="成功提交订单"></el-step>
+        </el-steps>
+      </div>
+      <!-- table -->
+      <div class="table">
+        <el-table
+          element-loading-text="正在为您拼命加载中..."
+          :data="tableData"
+          ref="multipleTable"
+          style="width: 100%"
+          @selection-change="handleSelectionChange"
+          :close-on-click-modal="false"
+          :close-on-press-escape="false"
+          :header-cell-style="{ background: '#f8f8f8', color: '#999' }"
         >
-        <el-breadcrumb-item>购物车</el-breadcrumb-item>
-      </el-breadcrumb>
-      <div><span>配送至:</span></div>
-      
-    </div>
-    <!-- Steps -->
-    <div class="steps">
-      <el-steps :active="active" align-center>
-        <el-step title="购物车"></el-step>
-        <el-step title="订单信息"></el-step>
-        <el-step title="订单支付"></el-step>
-        <el-step title="成功提交订单"></el-step>
-      </el-steps>
-    </div>
-    <!-- table -->
-    <div class="table">
-      <el-table
-        element-loading-text="正在为您拼命加载中..."
-        :data="tableData"
-        ref="multipleTable"
-        style="width: 100%"
-        @selection-change="handleSelectionChange"
-        :close-on-click-modal="false"
-        :close-on-press-escape="false"
-        :header-cell-style="{ background: '#f8f8f8', color: '#999' }"
-      >
-        <el-table-column type="selection" width="75" align="center" />
-        <el-table-column prop="shopImg" align="center" width="150" label="商品">
-          <template slot-scope="scope">
-            <img :src="scope.row.shopImg" class="shopImg" alt="" />
-          </template>
-        </el-table-column>
-        <el-table-column prop="shop" align="center">
-          <template slot-scope="scope">
-            <span class="shop">{{ scope.row.shop }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="price" label="单价" align="center">
-          <template slot-scope="scope">
-            <span class="price">¥{{ scope.row.price }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="number" label="数量" align="center">
-          <template slot-scope="scope">
-            <el-input
-              v-model.number="scope.row.number"
-              oninput="value=value.replace(/[^\d]/g,'')"
-              autocomplete="off"
-              style="width: 140px"
-              size="mini"
-              @change="handleInput(scope.row)"
-            >
-              <el-button size="mini" slot="prepend" @click="del(scope.row)"
-                ><i class="el-icon-minus"></i
-              ></el-button>
-              <el-button slot="append" size="mini" @click="add(scope.row)"
-                ><i class="el-icon-plus"></i
-              ></el-button>
-            </el-input>
-          </template>
-        </el-table-column>
-        <el-table-column prop="count" label="小计" align="center">
-          <template slot-scope="scope">
-            <span class="count">¥{{ scope.row.goodTotal }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="操作" align="center">
-          <template slot-scope="scope">
-            <div @click="handleDelete(scope.$index, scope.row)">
-              <i
-                class="el-icon-delete"
-                style="font-size: 18px; cursor: pointer"
-              ></i>
-              <span>删除</span>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-      <div class="submitBar">
-        <div class="left">
-          <span>继续购物</span>
-          <span>
-            共 <b>{{ totalCount }}</b> 件商品, 已选择
-            <b>{{ multipleSelection.length }}</b> 件
-          </span>
-        </div>
-        <div class="right">
-          <h3>产品总额：</h3>
-          <span>{{totalPrice}}</span>
-          <button @click="next">下一步</button>
+          <el-table-column type="selection" width="75" align="center" />
+          <el-table-column
+            prop="shopImg"
+            align="center"
+            width="150"
+            label="商品"
+          >
+            <template slot-scope="scope">
+              <img :src="scope.row.shopImg" class="shopImg" alt="" />
+            </template>
+          </el-table-column>
+          <el-table-column prop="shop" align="center">
+            <template slot-scope="scope">
+              <span class="shop">{{ scope.row.shop }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="price" label="单价" align="center">
+            <template slot-scope="scope">
+              <span class="price">¥{{ scope.row.price }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="number" label="数量" align="center">
+            <template slot-scope="scope">
+              <el-input
+                v-model.number="scope.row.number"
+                oninput="value=value.replace(/[^\d]/g,'')"
+                autocomplete="off"
+                style="width: 140px"
+                size="mini"
+                @change="handleInput(scope.row)"
+              >
+                <el-button size="mini" slot="prepend" @click="del(scope.row)"
+                  ><i class="el-icon-minus"></i
+                ></el-button>
+                <el-button slot="append" size="mini" @click="add(scope.row)"
+                  ><i class="el-icon-plus"></i
+                ></el-button>
+              </el-input>
+            </template>
+          </el-table-column>
+          <el-table-column prop="count" label="小计" align="center">
+            <template slot-scope="scope">
+              <span class="count">¥{{ scope.row.goodTotal }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" align="center">
+            <template slot-scope="scope">
+              <div @click="handleDelete(scope.$index, scope.row)">
+                <i
+                  class="el-icon-delete"
+                  style="font-size: 18px; cursor: pointer"
+                ></i>
+                <span>删除</span>
+              </div>
+            </template>
+          </el-table-column>
+        </el-table>
+        <el-empty description="请进行登录" v-show="empty" ></el-empty>
+        <div class="submitBar">
+          <div class="left">
+            <span>继续购物</span>
+            <span>
+              共 <b>{{ totalCount }}</b> 件商品, 已选择
+              <b>{{ multipleSelection.length }}</b> 件
+            </span>
+          </div>
+          <div class="right">
+            <h3>产品总额：</h3>
+            <span>{{ totalPrice }}</span>
+            <button @click="next">下一步</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import Gsearch from '../components/Gsearch.vue'
+import { getCartList } from "@/api/goods";
+import Gsearch from "../components/Gsearch.vue";
 export default {
   name: "Gouwuche",
-  components:{Gsearch},
+  components: { Gsearch },
   data() {
     return {
+      empty:false,
+      count:0,
+      total: 0,
+      listQuery: {
+        page: 1,
+        limit: 10,
+        importance: undefined,
+        title: undefined,
+        type: undefined,
+        sort: "+id",
+      },
       // totalCount:0,
       // 下一步
       active: 1,
+      tableData: [],
       tableData: [
         {
           shopImg:
@@ -184,18 +200,43 @@ export default {
       multipleSelection: [],
     };
   },
-  computed:{
-    totalCount:function(){
-      let result=0;
-      for(let i in this.tableData){
-        result+= this.tableData[i].number;
+  computed: {
+    totalCount: function () {
+      let result = 0;
+      for (let i in this.tableData) {
+        result += this.tableData[i].number;
         // console.log(number)
       }
       return result;
-    }
-    
+    },
+  },
+  created() {
+    this.getList();
   },
   methods: {
+    // 获取数据
+    getList() {
+      // this.listLoading = true;
+      getCartList(this.listQuery).then((response) => {
+        // this.total = response.data.total;
+        // this.tableData=response.data
+        console.log(response.data.data.list)
+        if(response.data.data.count==0){
+          this.empty=true;
+        }
+        // console.log(response);
+        if (response.code == 0) {
+          this.$message({
+            message: response.msg,
+            type: "success",
+          });
+        }
+        // Just to simulate the time of the request
+        setTimeout(() => {
+          // this.listLoading = false;
+        }, 1.5 * 1000);
+      });
+    },
     //   下一步
     next() {
       if (this.active++ > 2) this.active = 0;
@@ -262,7 +303,7 @@ export default {
           selection[i].goodTotal = parseInt(selection[i].goodTotal);
         }
         this.totalPrice += selection[i].goodTotal;
-        console.log(this.totalPrice)
+        console.log(this.totalPrice);
       }
     },
   },
@@ -280,11 +321,10 @@ export default {
     ::v-deep .el-breadcrumb__inner.is-link {
       color: #bfa548;
     }
-    span{
+    span {
       font-weight: 700;
       color: #999;
     }
-
   }
   .steps {
     margin-top: 26px;
@@ -332,9 +372,9 @@ export default {
     position: relative;
     padding-bottom: 100px;
     // 修改el-table每行hover以后的颜色
-    ::v-deep .el-table--enable-row-hover .el-table__body tr:hover>td{
+    ::v-deep .el-table--enable-row-hover .el-table__body tr:hover > td {
       // background-color: #212e3e;
-      background-color:#f1f1f1;
+      background-color: #f1f1f1;
     }
     ::v-deep .el-input__inner {
       text-align: center;

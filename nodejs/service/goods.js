@@ -165,6 +165,32 @@ async function getDingdanList(query) {
 
   return { list, count: count[0].count, page, pageSize }
 }
+async function getCartList(query) {
+  // console.log(query);
+  const {
+    // 默认值page=1,pageSize=10
+    page = 1, pageSize = 10,token
+  } = query
+  // 偏移多少个数据量，page=0 offset=0查询第1个  
+  // page=1 offset=20 查询第21个
+  const offset = (page - 1) * pageSize
+  let scoreSql = `select * from cartlist`
+  let where = 'where'
+
+  // 统计一共多少电子书
+  let countSql = `select count(*) as count from cartlist`
+  // 有查询条件
+  if (where != 'where') {
+    countSql = `${countSql} ${where}`
+  }
+  const count = await db.querySql(countSql)
+  console.log("count", count);
+  scoreSql = `${scoreSql} limit ${pageSize} offset ${offset}`
+  const list = await db.querySql(scoreSql)
+
+
+  return { list, count: count[0].count, page, pageSize }
+}
 
 function exists(body) {
   // return false
@@ -292,4 +318,4 @@ function isNew(params) {
     resolve()
   })
 }
-module.exports = { getGoodsList,getShenheList,getXiajiaList,getDingdanList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }
+module.exports = { getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }

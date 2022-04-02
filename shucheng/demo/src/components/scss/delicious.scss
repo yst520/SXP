@@ -1,9 +1,9 @@
 #Delicious {
     width: 100%;
-    height: auto;
+    height: 660px;
     box-sizing: border-box;
-    padding-bottom: 60px;
     background-color: #fff;
+    overflow: hidden;
 
     .container {
         overflow: visible;
@@ -214,5 +214,7 @@
 
             }
         }
+
+       
     }
 }
