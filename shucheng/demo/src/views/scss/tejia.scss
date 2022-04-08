@@ -1,0 +1,191 @@
+#tejia {
+    position: relative;
+    width: 100%;
+    background-color: #f6f6f6;
+    li{
+        float: left;
+    }
+    .tj_header {
+        width: 100%;
+        height: 321px;
+        overflow: hidden;
+        background: url('/tejia/tejia_bg.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+
+        .fengding {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 120px;
+            margin-top: 200px;
+            background-color: #fff;
+
+            .el-image {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .fengqing {
+                position: absolute;
+                right: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 210px;
+                height: 30px;
+                border: 1px solid #4a4c4d;
+
+                div {
+                    line-height: 30px;
+                    float: left;
+
+                    &:nth-child(1) {
+                        width: 70px;
+                        height: 30px;
+                    }
+
+                    &:nth-child(2) {
+                        width: 140px;
+                        height: 31px;
+                        color: #fff;
+                        background-color: #4a4c4d;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .tj_bar {
+        z-index: 5;
+        position: sticky;
+        top: 0px;
+        margin: 0 auto;
+        width: 1200px;
+        height: 50px;
+        color: red;
+        font-size: 18px;
+        background-color: #eee;
+
+        >div {
+            position: relative;
+            float: left;
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            color: #333;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                height: 6px;
+                width: 70px;
+                background: #df0021;
+                transform: translateX(-50%) scaleX(0);
+                transition: transform .3s ease;
+
+            }
+
+            &:hover {
+                color: #df0021;
+
+                &::after {
+                    transform: translateX(-50%) scaleX(1);
+
+                }
+            }
+        }
+
+        .barActive {
+            position: relative;
+            color: #df0021;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                height: 6px;
+                width: 70px;
+                background: #df0021;
+                transform: translateX(-50%) scaleX(1);
+                transition: transform .3s ease;
+            }
+        }
+    }
+
+    .tj_body {
+        width: 1200px;
+        // height: 1000px;
+        height: auto;
+        overflow: hidden;
+        margin: 12px auto 0;
+        box-sizing: border-box;
+        padding-bottom: 80px;
+
+        li {
+            width: 291px;
+            height: 334px;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-right: 12px;
+            margin-bottom: 12px;
+            text-align: left;
+            background-color: #fff;
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+
+            .imgBox {
+                width: 200px;
+                height: 200px;
+                margin: 10px auto;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            p {
+                text-overflow: -o-ellipsis-lastline;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+            .bottom{
+                margin-top: 10px;
+                .price{
+                    font-size: 28px;
+                    color: #df0021;
+                    :hover{
+                        color: green;
+                    }
+                    &::before{
+                        content: '￥';
+                        margin-right: 5px;
+                    }
+                }
+                .qianggou{
+                    float: right;
+                    color: #fff;
+                    font-size: 15px;
+                    margin-right: 5px;
+                    padding:9px 20px;
+                    background-color:#df0021;
+                    &:hover{
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+}

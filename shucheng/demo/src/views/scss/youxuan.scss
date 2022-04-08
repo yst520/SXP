@@ -2,7 +2,9 @@
     width: 100%;
     height: auto;
     background-color: #fff;
-
+    li{
+        float: left;
+    }
     .header-box {
         position: relative;
         width: 100%;
@@ -180,12 +182,18 @@
 
             li {
                 width: 400px;
-                height: auto;
+                height: 378px;
                 box-sizing: border-box;
                 padding: 10px;
 
 
                 .el-card {
+                    width: 100%;
+                    height: 100%;
+                    transition: all .25s ease-in-out;
+                    &:hover{
+                        margin-top: -10px;
+                    }
                     .y-title {
                         position: relative;
                         font-size: 18px;

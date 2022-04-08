@@ -46,86 +46,114 @@
         
       </ul>
     </div>
+    <pagination
+        v-show="total > 0"
+        :total="total"
+        :page.sync="listQuery.page"
+        :limit.sync="listQuery.pageSize"
+        @pagination="getList"
+      />
   </div>
 </template>
 <script>
+import Pagination from "@/components/Pagination";
+import { getYouxuanList } from "@/api/tese";
 export default {
   name: "Youxuan",
-  components: {},
+  components: {Pagination},
   props: [""],
   data() {
     return {
+      total:0,
       lunboList:[
         {img:'youxuan1'},{img:'youxuan2'},{img:'youxuan3'}
       ],
-      youpinList:[
-        {
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx1',
-          describe:'Zespri佳沛 新西兰阳光金奇异果 16个礼盒装 经典36号果 单果重约90-100g 新鲜水果礼盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx2',
-          describe:'展卉 泰国椰青 9个装 单果约800g以上 赠送开椰器和吸管 新鲜水果',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx3',
-          describe:'烟台红富士苹果 5kg 一级铂金果 果径约80mm 自营水果',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx4',
-          describe:'泰国进口龙眼 精选一级果1kg装 新鲜水果',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx5',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx6',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx7',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx8',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx9',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx10',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx11',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },{
-          maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
-          img:'yx12',
-          describe:'爱吃鱼挪威北极鳕鱼500g/盒',
-          price:'88.99'
-        },
+      youpinList:[],
+      // youpinList:[
+      //   {
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx1',
+      //     describe:'Zespri佳沛 新西兰阳光金奇异果 16个礼盒装 经典36号果 单果重约90-100g 新鲜水果礼盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx2',
+      //     describe:'展卉 泰国椰青 9个装 单果约800g以上 赠送开椰器和吸管 新鲜水果',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx3',
+      //     describe:'烟台红富士苹果 5kg 一级铂金果 果径约80mm 自营水果',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx4',
+      //     describe:'泰国进口龙眼 精选一级果1kg装 新鲜水果',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx5',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx6',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx7',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx8',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx9',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx10',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx11',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },{
+      //     maidian:'真鳕鱼低脂肪高蛋白宝宝辅食',
+      //     img:'yx12',
+      //     describe:'爱吃鱼挪威北极鳕鱼500g/盒',
+      //     price:'88.99'
+      //   },
         
-      ]
+      // ]
+      total: 0,
+      listQuery: {
+        page: 1,
+        pageSize: 12,
+        sort: "+id",
+        token: "",
+      },
     };
   },
-  created() {},
-  methods: {},
+  created() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+      getYouxuanList(this.listQuery).then((response) => {
+        this.total = response.data.count;
+        this.youpinList = response.data.list;
+        console.log(response.data.list)
+      });
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>

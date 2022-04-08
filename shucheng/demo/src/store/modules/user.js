@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/util/auth'
-import router, { resetRouter } from '@/router'
+// import router, { resetRouter } from '@/router'
 
 const state = {
   token: getToken(),
@@ -81,7 +81,7 @@ const actions = {
         commit('SET_TOKEN', '')
         commit('SET_ROLES', [])
         removeToken()
-        resetRouter()
+        // resetRouter()
 
         // reset visited views and cached views
         // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
@@ -113,7 +113,7 @@ const actions = {
 
     const { roles } = await dispatch('getInfo')
 
-    resetRouter()
+    // resetRouter()
 
     // generate accessible routes map based on roles
     const accessRoutes = await dispatch('permission/generateRoutes', roles, { root: true })

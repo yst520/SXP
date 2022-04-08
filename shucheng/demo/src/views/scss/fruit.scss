@@ -1,9 +1,9 @@
 #fruit {
     width: 100%;
     height: auto;
-    // overflow: hidden;
-
-    // background-color: red;
+    li{
+        float: left;
+    }
     .options {
         width: 1200px;
         margin:20px auto;

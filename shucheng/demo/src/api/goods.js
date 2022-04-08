@@ -7,6 +7,20 @@ export function getGoodsList(query) {
     params: query
   })
 }
+export function getTejiaList(query) {
+  return request({
+    url: '/stu/tejiaList',
+    method: 'get',
+    params: query
+  })
+}
+export function getShichiList(query) {
+  return request({
+    url: '/stu/shichiList',
+    method: 'get',
+    params: query
+  })
+}
 export function getXiajiaList(query) {
   return request({
     url: '/stu/xiajiaList',

@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <Header v-show="$route.meta.show2"/>
-    <Header2 v-show="$route.meta.show" />
+    <Header2 v-show="$route.meta.header2" />
     <Scene v-show="$route.meta.scene"/>
     <router-view/>
     <Footer v-show="$route.meta.show"/>

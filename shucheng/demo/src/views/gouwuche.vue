@@ -43,7 +43,7 @@
           </el-table-column>
           <el-table-column prop="shop" align="center">
             <template slot-scope="scope">
-              <span class="shop">{{ scope.row.shop }}</span>
+              <span class="shop">{{ scope.row.describe }}</span>
             </template>
           </el-table-column>
           <el-table-column prop="price" label="单价" align="center">
@@ -121,86 +121,87 @@ export default {
       listQuery: {
         page: 1,
         limit: 10,
-        importance: undefined,
-        title: undefined,
-        type: undefined,
         sort: "+id",
+        token:''
       },
       // totalCount:0,
       // 下一步
       active: 1,
       tableData: [],
-      tableData: [
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米不能写 红色 10支装",
-          price: 20,
-          number: 1,
-          goodTotal: 20,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-        {
-          shopImg:
-            "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
-          shop: "小米巨能写 黑色 10支装",
-          price: 30,
-          number: 1,
-          goodTotal: 30,
-        },
-      ],
+      // tableData: [
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米不能写 红色 10支装",
+      //     price: 20,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal:0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      //   {
+      //     shopImg:
+      //       "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1606288963.72951431.jpg",
+      //     shop: "小米巨能写 黑色 10支装",
+      //     price: 30,
+      //     number: 1,
+      //     goodTotal: 0,
+      //   },
+      // ],
       totalPrice: 0,
       multipleSelection: [],
     };
   },
   computed: {
+    // ...mapState({
+    //   token1: (state) => state.user.token,
+    // }),
     totalCount: function () {
       let result = 0;
       for (let i in this.tableData) {
@@ -216,20 +217,19 @@ export default {
   methods: {
     // 获取数据
     getList() {
-      // this.listLoading = true;
+      this.listQuery.token = this.$store.getters.token;
       getCartList(this.listQuery).then((response) => {
-        // this.total = response.data.total;
-        // this.tableData=response.data
-        console.log(response.data.data.list)
-        if(response.data.data.count==0){
+        
+        // console.log(this.$store.getters.token)
+        this.tableData=response.data.list
+        this.count=response.data.count
+        console.log(response.data)
+        if(response.data.count==0){
           this.empty=true;
         }
         // console.log(response);
         if (response.code == 0) {
-          this.$message({
-            message: response.msg,
-            type: "success",
-          });
+          console.log(response.msg)
         }
         // Just to simulate the time of the request
         setTimeout(() => {

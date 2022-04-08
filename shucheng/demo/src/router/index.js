@@ -10,19 +10,25 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta:{show:true,show2:true,scene:true}
+    meta:{show:true,header2:true,show2:true,scene:true}
   },
   {
     path: '/tejia',
     name: 'Tejia',
     component: () => import( '../views/tejia.vue'),
-    meta:{show:true,show2:true,scene:true}
+    meta:{show:true,header2:true,show2:true,scene:true}
   },
   {
     path: '/shichi',
     name: 'Shichi',
     component: () => import( '../views/shichi.vue'),
-    meta:{show:true,show2:true,scene:true}
+    meta:{show:true,header2:true,show2:true,scene:true}
+  },
+  {
+    path: '/info',
+    name: 'Info',
+    component: () => import( '../views/info.vue'),
+    meta:{show:true,header2:false,show2:true,scene:false}
   },
   // {
   //   path: '/',
@@ -34,7 +40,7 @@ const routes = [
     path: '/youxuan',
     name: 'Youxuan',
     component: () => import( '../views/youxuan.vue'),
-    meta:{show:true,show2:true,scene:true,}
+    meta:{show:true,header2:true,show2:true,scene:true,}
   },
   {
     path: '/about',
@@ -47,7 +53,7 @@ const routes = [
     path:'/fruit',
     name:'Fruit',
     component: () => import('../views/fruit.vue'),
-    meta:{show:true,scene:false,}
+    meta:{show:true,header2:true,scene:false,}
   },
   {//选项
     path:'/options',
@@ -58,7 +64,7 @@ const routes = [
     path:'/collect',
     name:'Collect',
     component:()=> import('../views/collect.vue'),
-    meta:{show:false,show2:true}
+    meta:{show:false,header2:true,show2:true}
   },{//收藏夹
     path:'/gouwuche',
     name:'Gouwuche',
@@ -79,6 +85,11 @@ const routes = [
     name:'Register',
     component:()=> import('../views/register.vue'),
     meta:{show:false,show2:false}
+  },{
+    path:'/dingdan',
+    name:'Dingdan',
+    component:()=> import('../views/dingdan.vue'),
+    meta:{show:true,show2:false}
   }
 ]
 

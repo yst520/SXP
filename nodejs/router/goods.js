@@ -4,8 +4,31 @@ const boom = require('boom')
 const Result = require('../model/Result')
 const router = express.Router()
 // const { insert } = require('../db/index')
-const {getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList,insertGoods,sendAdmin,updateGoods,updateShenhe,isNew,deleteGoods,deleteShenhe} = require('../service/goods')
-
+const {getYouxuanList,getShichiList,getTejiaList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList,insertGoods,sendAdmin,updateGoods,updateShenhe,isNew,deleteGoods,deleteShenhe} = require('../service/goods')
+//优选数据
+router.get('/youxuanList',(req,res,next)=>{
+  getYouxuanList(req.query).then(({list,count,page,pageSize})=>{
+    new Result({list,count,page:+page,pageSize:+pageSize},'获取商品列表成功').success(res)
+  }).catch(err=>{ 
+    next(boom.badImplementation(err))
+  })
+})
+//特价数据
+router.get('/tejiaList',(req,res,next)=>{
+  getTejiaList(req.query).then(({list,count,page,pageSize})=>{
+    new Result({list,count,page:+page,pageSize:+pageSize},'获取商品列表成功').success(res)
+  }).catch(err=>{ 
+    next(boom.badImplementation(err))
+  })
+})
+//试吃数据
+router.get('/shichiList',(req,res,next)=>{
+  getShichiList(req.query).then(({list,count,page,pageSize})=>{
+    new Result({list,count,page:+page,pageSize:+pageSize},'获取商品列表成功').success(res)
+  }).catch(err=>{ 
+    next(boom.badImplementation(err))
+  })
+})
 router.get('/goodsList',(req,res,next)=>{
   getGoodsList(req.query).then(({list,count,page,pageSize})=>{
     new Result({list,count,page:+page,pageSize:+pageSize},'获取商品列表成功').success(res)

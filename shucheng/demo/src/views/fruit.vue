@@ -63,7 +63,7 @@
           :page-sizes="[100, 200, 300, 400]"
           :page-size="100"
           layout="total, sizes, prev, pager, next, jumper"
-          :total="400"
+          :total="total"
         >
         </el-pagination>
       </div>
@@ -80,149 +80,11 @@
             <span class="zhe">4.4折</span>
             <div class="text">
               <p>{{item.describe}}
-                <!-- 【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果 -->
               </p>
             </div>
             <div class="label"><span>关注</span><span>加入购物车</span></div>
           </div>
         </li>
-        <!-- <li>
-          <div class="goods_img">
-            <img src="../static/pg2.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg3.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg4.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg5.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg6.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg1.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg1.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li>
-        <li>
-          <div class="goods_img">
-            <img src="../static/pg1.jpg" alt="" />
-          </div>
-          <div class="goods_introduce">
-            <button>热售</button>
-            <h4>￥123</h4>
-            <span>4.4折</span>
-            <div class="text">
-              <p>
-                【JD物流】新疆阿克苏冰糖心苹果
-                春节日送礼年货节新鲜水果红富士时令丑苹果
-              </p>
-            </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
-          </div>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -240,10 +102,7 @@ export default {
       total: 0,
       listQuery: {
         page: 1,
-        limit: 10,
-        importance: undefined,
-        title: undefined,
-        type: undefined,
+        pageSize: 20,
         sort: "+id",
       },
       currentPage4: 4,
