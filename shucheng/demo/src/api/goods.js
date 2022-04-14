@@ -35,6 +35,14 @@ export function insertGoods(data) {
     data
   })
 }
+//创建收藏夹
+export function insertFavorites(data) {
+  return request({
+    url: '/stu/insertFavorites',
+    method: 'post',
+    data
+  })
+}
 //送审
 export function sendAdmin(data) {
   return request({
@@ -58,6 +66,20 @@ export function updateGoods(data) {
     data:data
   })
 }
+export function updateFavorites(data) {
+  return request({
+    url: '/stu/updateFavorites',
+    method: 'post',
+    data:data
+  })
+}
+export function updateInfo(data) {
+  return request({
+    url: '/stu/updateInfo',
+    method: 'post',
+    data:data
+  })
+}
 export function updateShenhe(data) {
   return request({
     url: '/stu/updateShenhe',
@@ -68,6 +90,13 @@ export function updateShenhe(data) {
 export function deleteGoods(data) {
   return request({
     url: '/stu/deleteGoods',
+    method: 'post',
+    data:data
+  })
+}
+export function deleteFavorites(data) {
+  return request({
+    url: '/stu/deleteFavorites',
     method: 'post',
     data:data
   })
@@ -88,6 +117,14 @@ export function getCartList(query) {
   })
 }
 
+//收藏夹列表
+export function getFavoritesList(query) {
+  return request({
+    url: '/stu/favoritesList',
+    method: 'get',
+    params: query
+  })
+}
 
 export function isNew(params) {
   return request({

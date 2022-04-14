@@ -2,9 +2,9 @@
   <div id="fruit">
     <Cscene />
     <div class="container">
-      <el-breadcrumb style="margin-top:20px;">
-        <el-breadcrumb-item :to="{ path: '/' }" >产品</el-breadcrumb-item>
-        <el-breadcrumb-item >水果</el-breadcrumb-item>
+      <el-breadcrumb style="margin-top: 20px">
+        <el-breadcrumb-item :to="{ path: '/' }">产品</el-breadcrumb-item>
+        <el-breadcrumb-item>水果</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
 
@@ -56,7 +56,7 @@
         <!-- <li>销量</li> -->
       </ul>
       <div class="pagination">
-        <el-pagination
+        <!-- <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="currentPage4"
@@ -65,24 +65,33 @@
           layout="total, sizes, prev, pager, next, jumper"
           :total="total"
         >
-        </el-pagination>
+        </el-pagination> -->
+        <pagination
+        v-show="total > 0"
+        :total="total"
+        :page.sync="listQuery.page"
+        :limit.sync="listQuery.pageSize"
+        @pagination="getList"
+      />
       </div>
     </div>
     <div class="goods">
       <ul>
-        <li v-for="(item,index) in fruitList" :key="index">
+        <li v-for="(item, index) in goodsList" :key="index">
           <div class="goods_img">
-            <img :src="require('../static/'+item.img+'.jpg')" alt="" />
+            <img :src="'/goods/g'+item.id+'.jpg'" alt="" />
           </div>
           <div class="goods_introduce">
-            <button>热售</button>
-            <h4>{{item.price}}</h4>
+            <button>{{item.biaoqian}}</button>
+            <h4>{{ item.price }}</h4>
             <span class="zhe">4.4折</span>
-            <div class="text">
-              <p>{{item.describe}}
-              </p>
+            <div class="describe">
+              <p>{{ item.describe }}</p>
             </div>
-            <div class="label"><span>关注</span><span>加入购物车</span></div>
+            <div class="label">
+              <span><i class="el-icon-star-on"></i> 关注</span>
+              <span><i class="el-icon-s-goods"></i> 加入购物车</span>
+            </div>
           </div>
         </li>
       </ul>
@@ -90,11 +99,12 @@
   </div>
 </template>
 <script>
-
+import Pagination from "@/components/Pagination";
+import { getGoodsList } from "@/api/goods";
 import Cscene from "../components/Cscene.vue";
 export default {
   name: "Fruit",
-  components: { Cscene },
+  components: { Cscene,Pagination },
   props: [""],
   data() {
     return {
@@ -151,74 +161,28 @@ export default {
         { text: "国产/进口" },
         { text: "阿克苏苹果单果果径" },
       ],
-      fruitList:[
+      goodsList: [
         {
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg2',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg3',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg4',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg5',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg6',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
-        },{
-          img:'pg1',
-          price:'123.00',
-          describe:'【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果'
+          img: "1",
+          price: "123.00",
+          describe:
+            "【JD物流】新疆阿克苏冰糖心苹果春节日送礼年货节新鲜水果红富士时令丑苹果",
         },
-      ]
+        
+      ],
     };
   },
- 
+  created() {
+    this.getList();
+  },
   methods: {
-    
+    getList() {
+      getGoodsList(this.listQuery).then((res) => {
+        this.total = res.data.count;
+        this.goodsList = res.data.list;
+        console.log(res)
+      });
+    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },

@@ -60,12 +60,12 @@ const routes = [
     name:'Options',
     component:()=> import('../views/options.vue')
   },
-  {//购物车
+  {//收藏夹
     path:'/collect',
     name:'Collect',
     component:()=> import('../views/collect.vue'),
-    meta:{show:false,header2:true,show2:true}
-  },{//收藏夹
+    meta:{show:true,header2:true,show2:false}
+  },{//购物车
     path:'/gouwuche',
     name:'Gouwuche',
     component:()=> import('../views/gouwuche.vue'),
@@ -75,6 +75,11 @@ const routes = [
     name:'Kefu',
     component:()=> import('../views/kefu.vue'),
     meta:{show:false,show2:false}
+  },{//店铺
+    path:'/dianpu',
+    name:'Dianpu',
+    component:()=> import('../views/dianpu.vue'),
+    meta:{show:true,show2:true}
   },{
     path:'/login',
     name:'Login',

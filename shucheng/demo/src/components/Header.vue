@@ -2,13 +2,20 @@
   <div id="header">
     <div class="container">
       <ul>
-        <li class="user">
-          <router-link to="/info" slot="reference">欢迎:{{ user }}</router-link>
-          <div class="userinfo">111</div>
+        <li>
+          <router-link to="/"><i class="el-icon-s-home"></i> 首页</router-link>
+        </li>
+        <li class="user" v-show="denglu">
+          <router-link to="/info">欢迎您！:{{ user }}用户</router-link>
+        </li>
+        <li v-show="!denglu">
+          <router-link to="/login">登录/注册</router-link>
         </li>
         <li>
-          <router-link to="/" slot="reference">首页</router-link>
+          <router-link to="/dianpu">店铺</router-link>
         </li>
+      </ul>
+      <ul style="float:right">
         <li>
           <el-popover
             placement="bottom"
@@ -26,11 +33,21 @@
               个人中心<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item icon="el-icon-user"><router-link to="/info">个人主页</router-link></el-dropdown-item>
-              <el-dropdown-item icon="el-icon-setting">账号设置</el-dropdown-item>
+              <el-dropdown-item icon="el-icon-user"
+                ><router-link to="/info"
+                  >个人主页</router-link
+                ></el-dropdown-item
+              >
+              <el-dropdown-item icon="el-icon-setting"
+                >账号设置</el-dropdown-item
+              >
               <el-dropdown-item icon="el-icon-bell">我的消息</el-dropdown-item>
-              <el-dropdown-item icon="el-icon-star-off">我的收藏</el-dropdown-item>
-              <el-dropdown-item icon="el-icon-switch-button">退出登录</el-dropdown-item>
+              <el-dropdown-item icon="el-icon-star-off"
+                >我的收藏</el-dropdown-item
+              >
+              <el-dropdown-item icon="el-icon-switch-button"
+                >退出登录</el-dropdown-item
+              >
             </el-dropdown-menu>
           </el-dropdown>
         </li>
@@ -45,7 +62,7 @@
             <router-link to="/info" slot="reference">我的会员</router-link>
           </el-popover>
         </li>
-        
+
         <li>
           <router-link to="/dingdan">我的订单</router-link>
         </li>
@@ -61,6 +78,7 @@ export default {
   props: [""],
   data() {
     return {
+      denglu: false,
       user: "",
       // loginText: "登录/注册",
       activeIndex: "1",
@@ -83,10 +101,15 @@ export default {
   },
   methods: {
     getList() {
-      getInfo(this.$store.getters.token).then((response) => {
-        console.log(response.data);
-        this.user = response.data.username;
-      });
+      if (this.$store.getters.token) {
+        this.denglu = true;
+        getInfo(this.$store.getters.token).then((response) => {
+          console.log(response.data);
+          this.user = response.data.username;
+        });
+      } else {
+        this.denglu = false;
+      }
     },
   },
 };

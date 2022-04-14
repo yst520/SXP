@@ -52,7 +52,7 @@
                       </a>
                       <div class="number">{{item.number}}</div>
                       <div>{{item.zhifu}}</div>
-                      <div class="price">{{item.zhifu}}</div>
+                      <div class="price">{{item.price}}</div>
                       <div class="state">{{item.state}}</div>
                     </div>
                   </li>

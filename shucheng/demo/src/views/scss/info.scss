@@ -134,12 +134,100 @@
                 background-color: #fff;
                 box-sizing: border-box;
                 padding:10px 20px;
+                >span{
+                    margin-left: 30px;
+                    display: inline-block;
+                    line-height: 28px;
+                   
+                }
+                .b-Green{
+                    border-bottom:3px solid #00B277;
+                }
+                .attentionList{
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding:20px 10px;
+                    overflow: hidden;
+                    background-color: #f5f5f5;
+                    li{
+                        float: left;
+                        width: 220px;
+                        height: 300px;
+                        margin-right: 20px;
+                        overflow: hidden;
+                        text-align: left;
+                        box-sizing: border-box;
+                        padding:10px;
+                        margin-bottom: 20px;
+                        background-color: #fff;
+                        border-radius: 4px;
+                            box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+                        &:nth-child(4n){
+                            margin-right: 0;
+                        }
+                        .content{
+                            margin:0 auto;
+                            text-align: center;
+                            width: 200px;
+                            height: 280px;
+                            border:1px dotted #409eff;
+                            i{
+                                margin-top: 80px;
+                                font-size: 44px;
+                                color:#00c65d;
+                            }
+                            p{
+                                margin-top: 20px;
+                                color: #999;
+                                font-size: 14px;
+                            }
+                            
+                        }
+                        .imgBox{
+                            position: relative;
+                            width: 200px;
+                            height: 200px;
+                            margin:0px auto;
+                            .box-cover{
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 200px;
+                                height: 200px;
+                                // background: url('/info/cover.png');
+                                background:rgba(0,0,0,0.3);
+                                background-size: 100% 100%;
+                                // background-position: 0 0;
+                            }
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .name{
+                            color: #666;
+                            margin:5px 0;
+                            font-weight: 700;
+                        }
+                        .describe{
+                            font-size: 13px;
+                            color: #999;
+                            margin-bottom: 7px;
+                        }
+                        .el-tag{
+                            height: 26px;
+                            line-height: 26px;
+                            cursor: pointer;
+                        }
+                    }
+                }
             }
         }
     }
     .el-dialog{
         text-align: left;
         .el-tag{
+            cursor: pointer;
             margin-right: 14px;
             
         }
@@ -148,4 +236,34 @@
             
         }
     }
+    //收藏夹
+    .favorites{
+       
+        .fengmian{
+            margin:20px;
+            position: relative;
+            width: 200px;
+            height: 200px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .msk{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 200px;
+                height: 200px;
+                background-color: rgba(0,0,0,0.4);
+                i{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 20px;
+                    color: #fff;
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+    
 }

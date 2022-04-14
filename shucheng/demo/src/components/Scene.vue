@@ -8,7 +8,7 @@
           <ul>
             <li>
               <i class="item_icon1"></i>
-              <router-link to="/fruit" target="_blank">新鲜水果</router-link>
+              <router-link to="/fruit">新鲜水果</router-link>
               <div><span>草莓</span><span>水蜜桃</span><span>车厘子</span></div>
             </li>
             <li><i class="item_icon2"></i><router-link to="/fruit">海鲜水产</router-link>

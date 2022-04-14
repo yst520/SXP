@@ -118,7 +118,7 @@ async function getGoodsList(query) {
   // console.log(query);
   const {
     // 默认值page=1,pageSize=20
-    page = 1, pageSize =20, sort
+    page = 1, pageSize =20, sort,id,name
   } = query
   // 偏移多少个数据量，page=0 offset=0查询第1个  
   // page=1 offset=20 查询第21个
@@ -301,7 +301,60 @@ async function getCartList(query) {
 
   return { list, count: count[0].count, page, pageSize }
 }
+//收藏夹
+async function getCollectList(query) {
+  // console.log(query);
+  const {
+    // 默认值page=1,pageSize=10
+    page = 1, pageSize = 10,token
+  } = query
+  // 偏移多少个数据量，page=0 offset=0查询第1个  
+  // page=1 offset=20 查询第21个
+  const offset = (page - 1) * pageSize
+  let scoreSql = `select * from collect where userid='${token}'`
+  let where = 'where'
 
+  // 统计一共多少电子书
+  let countSql = `select count(*) as count from collect where userid='${token}'`
+  // 有查询条件
+  if (where != 'where') {
+    countSql = `${countSql} ${where}`
+  }
+  const count = await db.querySql(countSql)
+  console.log("count", count);
+  scoreSql = `${scoreSql} limit ${pageSize} offset ${offset}`
+  const list = await db.querySql(scoreSql)
+
+
+  return { list, count: count[0].count, page, pageSize }
+}
+//收藏夹
+async function getFavoritesList(query) {
+  // console.log(query);
+  const {
+    // 默认值page=1,pageSize=10
+    page = 1, pageSize = 10,token
+  } = query
+  // 偏移多少个数据量，page=0 offset=0查询第1个  
+  // page=1 offset=20 查询第21个
+  const offset = (page - 1) * pageSize
+  let scoreSql = `select * from favorites where userid='${token}'`
+  let where = 'where'
+
+  // 统计一共多少电子书
+  let countSql = `select count(*) as count from favorites where userid='${token}'`
+  // 有查询条件
+  if (where != 'where') {
+    countSql = `${countSql} ${where}`
+  }
+  const count = await db.querySql(countSql)
+  console.log("count", count);
+  scoreSql = `${scoreSql} limit ${pageSize} offset ${offset}`
+  const list = await db.querySql(scoreSql)
+
+
+  return { list, count: count[0].count, page, pageSize }
+}
 function exists(body) {
   // return false
   const { id } = body
@@ -348,6 +401,25 @@ function insertGoods(body) {
   })
 }
 
+function insertFavorites(body) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      // 判断文件夹是否已经上传过了
+      const result = await exists(body)
+      // console.log('res', result);
+      if (result) {
+        reject(new Error('已经有此记录了，请选择编辑商品信息'))
+
+      } else {
+        // 传入对象和表名 完成插入操作
+        await db.insert(body, 'favorites')
+        resolve()
+      }
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
 function updateGoods(body) {
   return new Promise(async (resolve, reject) => {
     try {
@@ -368,7 +440,26 @@ function updateShenhe(body) {
     }
   })
 }
-
+function updateFavorites(body) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      await db.update(body, 'favorites', `where userid=${body.userid} and name='${body.name}'`)
+      resolve()
+    } catch (error) {
+      reject("error", error)
+    }
+  })
+}
+function updateInfo(body) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      await db.update(body, 'user', `where username=${body.username}`)
+      resolve()
+    } catch (error) {
+      reject("error", error)
+    }
+  })
+}
 function deleteGoods(body) {
   const { id} = body
   return new Promise(async (resolve, reject) => {
@@ -384,6 +475,28 @@ function deleteShenhe(body) {
   const { id} = body
   return new Promise(async (resolve, reject) => {
     await db.queryOne(`delete from shenhe where id=${id}`).then((res) => {
+      resolve('删除成功')
+    }).catch((err) => {
+      reject(new Error('删除失败'))
+    })
+  })
+
+}
+function deleteFavorites(body) {
+  const { name, userid } = body
+  return new Promise(async (resolve, reject) => {
+    await db.queryOne(`delete from favorites where name='${name}' and userid=${userid}`).then((res) => {
+      resolve('删除成功')
+    }).catch((err) => {
+      reject(new Error('删除失败'))
+    })
+  })
+
+}
+function deleteCollect(body) {
+  const { bianhao, userid } = body
+  return new Promise(async (resolve, reject) => {
+    await db.queryOne(`delete from collect where userid=${userid} and bianhao='${bianhao}'`).then((res) => {
       resolve('删除成功')
     }).catch((err) => {
       reject(new Error('删除失败'))
@@ -428,4 +541,4 @@ function isNew(params) {
     resolve()
   })
 }
-module.exports = { getYouxuanList,getTejiaList,getShichiList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }
+module.exports = {deleteCollect,updateInfo,updateFavorites,deleteFavorites,insertFavorites,getFavoritesList,getYouxuanList,getCollectList,getTejiaList,getShichiList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }

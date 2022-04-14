@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { getGoodsList } from "@/api/goods";
 import Swiper from "../components/Swiper.vue";
 import Recommended from "../components/Recommended.vue";
 import Delicious from "../components/Delicious.vue";
@@ -43,8 +42,7 @@ export default {
   methods: {
     // 获取数据
     getList() {
-      // getGoodsList(this.listQuery).then((response) => {
-      // });
+     
     },
   },
 };
