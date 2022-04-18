@@ -1,4 +1,5 @@
 #fruit {
+    position: relative;
     width: 100%;
     height: auto;
 
@@ -15,26 +16,29 @@
 
         ul {
             text-align: left;
-
             li {
                 border-top: 1px solid #ddd;
                 float: none;
-
-                h6 {
-                    display: inline-block;
-                    font-size: 13px;
-                    width: 120px;
-                    margin-right: 12px;
-                    box-sizing: border-box;
-                    padding-left: 12px;
-                    line-height: 30px;
-                    background-color: #f3f3f3;
-                }
-
+                width: 100%;
+                height: 34px;
+                line-height: 34px;
                 span {
-                    font-size: 14px;
-                    color: #000;
+                    font-size: 13px;
+                    color: #666;
                     margin-right: 50px;
+                    &:nth-child(1){
+                        display: inline-block;
+                        width: 110px;
+                        height: 34px;
+                        font-size: 14px;
+                        color: #666;
+                        box-sizing: border-box;
+                        padding-left: 30px;
+                        background-color: #f3f3f3;
+                    }
+                    &:not(:first-child):hover{
+                        color: #00c65d;
+                    }
                 }
 
             }
@@ -55,6 +59,7 @@
 
         ul {
             li {
+                
                 line-height: 36px;
                 padding: 0 28px;
                 border: 1px solid #f5f5f5;
@@ -69,7 +74,9 @@
             }
 
         }
-
+        .pagination{
+            float: right;
+        }
         .pagination-container {
             background: #f5f5f5;
             padding: 3px 16px;

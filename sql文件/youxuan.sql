@@ -1,0 +1,12 @@
+INSERT INTO `youxuan` VALUES (1, '补充维生素 富含纤维', 'yx1', 'Zespri佳沛 新西兰阳光金奇异果 16个礼盒装 经典36号果 单果重约90-100g 新鲜水果礼盒', 269.00);
+INSERT INTO `youxuan` VALUES (2, '补充维生素 富含纤维', 'yx2', '展卉 泰国椰青 9个装 单果约800g以上 赠送开椰器和吸管 新鲜水果', 134.00);
+INSERT INTO `youxuan` VALUES (3, '补充维生素 富含纤维', 'yx3', '烟台红富士苹果 5kg 一级铂金果 果径约80mm 自营水果', 65.88);
+INSERT INTO `youxuan` VALUES (4, '补充维生素 富含纤维', 'yx4', '泰国进口龙眼 精选一级果1kg装 新鲜水果', 23.99);
+INSERT INTO `youxuan` VALUES (5, '补充维生素 富含纤维', 'yx5', '佳农 进口香蕉 2kg（约10-12根） 单根独立包装 厄瓜多尔进口 新鲜水果', 33.40);
+INSERT INTO `youxuan` VALUES (6, '补充维生素 富含纤维', 'yx6', '佳农 菲律宾进口菠萝 2个装 单果重1kg以上 新鲜水果', 32.80);
+INSERT INTO `youxuan` VALUES (7, '补充维生素 富含纤维', 'yx7', '澳大利亚进口脐橙 澳橙 优选大果 2kg装 单果重约220-320g 新鲜水果', 54.99);
+INSERT INTO `youxuan` VALUES (8, '补充维生素 富含纤维', 'yx8', '家美舒达 贝贝南瓜 板栗小南瓜   约2.5kg  礼盒装', 66.88);
+INSERT INTO `youxuan` VALUES (9, '补充维生素 富含纤维', 'yx9', '高山黄金蜜薯 安娜芋 地瓜 2.5kg 中果 烤地瓜 蔬菜礼盒 新鲜蔬菜', 33.56);
+INSERT INTO `youxuan` VALUES (10, '补充维生素 富含纤维', 'yx10', '美果汇三生三世水果礼盒（苹果+脐橙+石榴）重阳节水果礼盒 送礼', 99.90);
+INSERT INTO `youxuan` VALUES (11, '补充维生素 富含纤维', 'yx11', '帆儿庄园 金手指黑提子新鲜水果葡萄提子 1kg', 72.11);
+INSERT INTO `youxuan` VALUES (12, '补充维生素 富含纤维', 'yx12', '都乐Dole 菲律宾进口非转基因木瓜 4只装 单果重约410g 新鲜水果', 67.78);

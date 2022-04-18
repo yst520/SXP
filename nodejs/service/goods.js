@@ -118,12 +118,55 @@ async function getGoodsList(query) {
   // console.log(query);
   const {
     // 默认值page=1,pageSize=20
-    page = 1, pageSize =20, sort,id,name
+    page = 1, pageSize =20, type,id,name,sort,describe
   } = query
   // 偏移多少个数据量，page=0 offset=0查询第1个  
   // page=1 offset=20 查询第21个
   const offset = (page - 1) * pageSize
   let scoreSql = `select * from goodslist`
+  let where = 'where'
+  //type查询
+  type && (where =db.and(where,"type",type))
+  //描述查询（模糊查询）
+  describe && (where = db.andLike(where, 'describe',describe))
+  // where  第二个参数 ：key  第三个：value
+  // id && (where = db.and(where, "id", id))
+  // 模糊查询
+  // name && (where = db.andLike(where, 'name',name))
+  if (where !== 'where') {
+    scoreSql = `${scoreSql} ${where}`
+  }
+  if (sort) {
+    // symbol:第一个字符
+    const symbol = sort[0]
+    const colunm = sort.slice(1, sort.length)
+    const order = symbol === '+' ? 'asc' : 'desc'
+    scoreSql = `${scoreSql} order by \`${colunm}\` ${order}`
+  }
+  // 统计一共多少商品
+  let countSql = `select count(*) as count from goodslist`
+  // 有查询条件
+  if (where != 'where') {
+    countSql = `${countSql} ${where}`
+  }
+  const count = await db.querySql(countSql)
+  console.log("count", count);
+  scoreSql = `${scoreSql} limit ${pageSize} offset ${offset}`
+  const list = await db.querySql(scoreSql)
+
+
+  return { list, count: count[0].count, page, pageSize }
+}
+async function getDianpuList(query) {
+  // console.log(query);
+  const {
+    // 默认值page=1,pageSize=20
+    page = 1, pageSize =20,id,name,sort,token
+  } = query
+  // 偏移多少个数据量，page=0 offset=0查询第1个  
+  // page=1 offset=20 查询第21个
+  const offset = (page - 1) * pageSize
+  let scoreSql = `select * from goodslist where username='${token}'`
   let where = 'where'
 
   // where  第二个参数 ：key  第三个：value
@@ -141,7 +184,7 @@ async function getGoodsList(query) {
     scoreSql = `${scoreSql} order by \`${colunm}\` ${order}`
   }
   // 统计一共多少电子书
-  let countSql = `select count(*) as count from goodslist`
+  let countSql = `select count(*) as count from goodslist where username='${token}'`
   // 有查询条件
   if (where != 'where') {
     countSql = `${countSql} ${where}`
@@ -541,4 +584,4 @@ function isNew(params) {
     resolve()
   })
 }
-module.exports = {deleteCollect,updateInfo,updateFavorites,deleteFavorites,insertFavorites,getFavoritesList,getYouxuanList,getCollectList,getTejiaList,getShichiList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }
+module.exports = {getDianpuList,deleteCollect,updateInfo,updateFavorites,deleteFavorites,insertFavorites,getFavoritesList,getYouxuanList,getCollectList,getTejiaList,getShichiList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList, sendAdmin,insertGoods,deleteShenhe, updateGoods,updateShenhe, isNew, deleteGoods }

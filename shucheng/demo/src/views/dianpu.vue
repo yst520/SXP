@@ -28,20 +28,32 @@
       <span><i class="iconfont icon-zuanshi"></i>会员中心</span>
     </div>
     <div class="title-bar">
-      <img class="hua1" src="/dianpu/hua1.png" alt="">
-      <img class="hua2" src="/dianpu/hua2.png" alt="">
+      <img class="hua1" src="/dianpu/hua1.png" alt="" />
+      <img class="hua2" src="/dianpu/hua2.png" alt="" />
       <h2>爱吃鱼官方旗舰店</h2>
     </div>
-    <div class="dp-main">
-      <div class="sort">
-        <span
+    <div class="sortingBar">
+      <ul>
+        <li
           v-for="(item, index) in sortList"
-          :key="index"
-          :class="selected == index ? 'Green' : ''"
+          :key="item"
           @click="change(index)"
-          >{{ item.text }}</span
+          :class="selected == index ? 'Green' : 'li'"
         >
+          {{ item }}
+        </li>
+      </ul>
+      <div class="pagination">
+        <pagination
+          v-show="total > 0"
+          :total="total"
+          :page.sync="listQuery.page"
+          :limit.sync="listQuery.pageSize"
+          @pagination="getList"
+        />
       </div>
+    </div>
+    <div class="dp-main">
       <div class="sideBar">
         <div class="side-top">
           <span>CLASSIFICATION</span>
@@ -55,8 +67,13 @@
       </div>
       <div class="list">
         <ul>
-          <li>
-            
+          <li v-for="(item, index) in dianpuList" :key="index">
+            <div class="imgBox">
+              <img :src="'/goods/g' + item.id + '.jpg'" alt="" />
+            </div>
+            <h4 class="price">{{ item.price }}</h4>
+            <p class="describe">{{ item.describe }}</p>
+            <span class="pingjia">{{ item.pingjia }}</span>
           </li>
         </ul>
       </div>
@@ -64,12 +81,24 @@
   </div>
 </template>
 <script>
+import Pagination from "@/components/Pagination";
+import { getDianpuList } from "@/api/goods";
 export default {
   name: "Dianpu",
-  components: {},
+  components: { Pagination },
   props: [""],
   data() {
     return {
+      total: 0,
+      dianpuList: [
+        {
+          id: "12",
+          price: 89.0,
+          describe:
+            "爱吃鱼 儿童挪威真鳕鱼180g 去皮去骨小袋包赚 MSC认证 儿童挪威真鳕鱼6-10块/盒",
+          pingjia: 7890,
+        },
+      ],
       sideList: [
         { text: "宝宝专享" },
         { text: "MSC认证" },
@@ -81,16 +110,27 @@ export default {
       selected: 0,
       search: "",
       value: 4.2,
-      sortList: [
-        { text: "上架时间" },
-        { text: "销量" },
-        { text: "价格" },
-        { text: "好评度" },
-      ],
+      sortList: ["上架时间", "销量", "价格", "好评度"],
+      listQuery: {
+        page: 1,
+        pageSize: 12,
+        sort: "+id",
+        token: "",
+      },
     };
   },
-  created() {},
+  created() {
+    this.getList();
+  },
   methods: {
+    getList() {
+      this.listQuery.token = this.$store.getters.token;
+      getDianpuList(this.listQuery).then((res) => {
+        this.total = res.data.count;
+        console.log(res);
+        this.dianpuList = res.data.list;
+      });
+    },
     change(index) {
       this.selected = index;
     },

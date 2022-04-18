@@ -11,21 +11,13 @@
         <li v-show="!denglu">
           <router-link to="/login">登录/注册</router-link>
         </li>
-        <li>
-          <router-link to="/dianpu">店铺</router-link>
+        <li @click="toDianpu" v-show="dianzhu">
+          <span>我的店铺</span>
         </li>
       </ul>
       <ul style="float:right">
         <li>
-          <el-popover
-            placement="bottom"
-            title="标题"
-            width="200"
-            trigger="hover"
-            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
-          >
-            <router-link to="/gouwuche" slot="reference">购物车</router-link>
-          </el-popover>
+            <router-link to="/gouwuche" >购物车</router-link>
         </li>
         <li>
           <el-dropdown trigger="hover">
@@ -52,15 +44,8 @@
           </el-dropdown>
         </li>
         <li>
-          <el-popover
-            placement="bottom-start"
-            title="标题"
-            width="200"
-            trigger="hover"
-            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
-          >
-            <router-link to="/info" slot="reference">我的会员</router-link>
-          </el-popover>
+         
+            <router-link to="/info">我的会员</router-link>
         </li>
 
         <li>
@@ -78,6 +63,7 @@ export default {
   props: [""],
   data() {
     return {
+      dianzhu:false,
       denglu: false,
       user: "",
       // loginText: "登录/注册",
@@ -100,12 +86,18 @@ export default {
     this.getList();
   },
   methods: {
+    toDianpu(){
+      this.$router.push('/dianpu')
+    },
     getList() {
       if (this.$store.getters.token) {
         this.denglu = true;
-        getInfo(this.$store.getters.token).then((response) => {
-          console.log(response.data);
-          this.user = response.data.username;
+        getInfo(this.$store.getters.token).then((res) => {
+          console.log(res.data);
+          this.user = res.data.username;
+          if(res.data.roles= 'editor'){
+            this.dianzhu=true;
+          }
         });
       } else {
         this.denglu = false;

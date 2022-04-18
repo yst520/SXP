@@ -24,11 +24,11 @@
             </ul>
           </div>
         </div>
-        <div class="operation" v-for="(item,index) in duihuaList" :key="index">
+        <div class="operation" v-for="(item, index) in duihuaList" :key="index">
           <div class="tx"><i class="el-icon-user-solid"></i></div>
           <div class="content">
             <p>
-              {{item.text}}
+              {{ item.text }}
             </p>
             <div class="icons">
               <i class="iconfont icon-dianzan_kuai" style="font-size: 17px"></i
@@ -51,23 +51,31 @@
     >
       <span>您对机器人的服务是否满意？</span>
       <div class="pingjia">
-          <div v-for="(item,index) in pingjiaList" :key="index" @click="pingjia(index)" :class="index==selected?'iconActive':''">
-              <i  :class="item.icon"></i><span>{{item.text}}</span>
-          </div>
-          
-          <!-- <i class=""></i><span>一般</span> -->
-          <!-- <i class=""></i><span>不满意</span> -->
-      </div>  
+        <div
+          v-for="(item, index) in pingjiaList"
+          :key="index"
+          @click="pingjia(index)"
+          :class="index == selected ? 'iconActive' : ''"
+        >
+          <i :class="item.icon"></i><span>{{ item.text }}</span>
+        </div>
+
+        <!-- <i class=""></i><span>一般</span> -->
+        <!-- <i class=""></i><span>不满意</span> -->
+      </div>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="dialogVisible = false"
           >提交评价</el-button
         >
         <el-button @click="dialogVisible = false">取 消</el-button>
-        
       </div>
     </el-dialog>
 
-    <div class="information"></div>
+    <div class="information">
+      <i class="el-icon-circle-plus-outline"></i>
+      <el-input v-model="question" @keyup.enter="sentMsg()" placeholder="请输入您的问题..."></el-input>
+      <el-button type="success" @click="sentMsg()" plain>发送</el-button>
+    </div>
   </div>
 </template>
 <script>
@@ -77,17 +85,20 @@ export default {
   props: [""],
   data() {
     return {
-      selected:'0',
+      question: "",
+      selected: "0",
       dialogVisible: false,
       count: 0,
       yuyin: "el-icon-microphone",
-      duihuaList:[
-        {text:'充值后可以提供发票，可开增值税普通发票和增值税专用发票，发票内容默认为技术服务费，如需发票， 请点击【转人工】按钮，或输入文字【转人工】客服为您办理。'}
+      duihuaList: [
+        {
+          text: "充值后可以提供发票，可开增值税普通发票和增值税专用发票，发票内容默认为技术服务费，如需发票， 请点击【转人工】按钮，或输入文字【转人工】客服为您办理。",
+        },
       ],
-      pingjiaList:[
-          {icon:'iconfont icon-haoping',text:'满意'},
-          {icon:'iconfont icon-zhongping',text:'一般'},
-          {icon:'iconfont icon-chaping',text:'不满意'}
+      pingjiaList: [
+        { icon: "iconfont icon-haoping", text: "满意" },
+        { icon: "iconfont icon-zhongping", text: "一般" },
+        { icon: "iconfont icon-chaping", text: "不满意" },
       ],
       questionList: [
         // {text:''},
@@ -106,29 +117,49 @@ export default {
   },
   created() {},
   methods: {
-    pingjia(index){
-        this.selected=index;
-    },
-    reply(index) {
-      //
-      if (index == 1) {
-        this.duihuaList.push({text:'1111'})
-      }else if(index ==2){
-          this.duihuaList.push({text:'2222'})
-      }else if(index ==3){
-          this.duihuaList.push({text:'3333'})
-      }else if(index ==4){
-          this.duihuaList.push({text:'4444'})
-      }else if(index ==5){
-          this.duihuaList.push({text:'5555'})
-      }else if(index ==6){
-          this.duihuaList.push({text:'6666'})
-      }else if(index ==7){
-          this.duihuaList.push({text:'7777'})
-      }else if(index ==8){
-          this.duihuaList.push({text:'8888'})
+    sentMsg() {
+      clearTimeout(this.timer);
+      this.showTimer();
+      let text = this.customerText.trim();
+      if (text != "") {
+        var obj = {
+          type: "rightinfo",
+          time: this.getTodayTime(),
+          content: text,
+        };
+        this.info.push(obj);
+        this.appendRobotMsg(this.customerText);
+        this.customerText = "";
+        this.$nextTick(() => {
+          var contentHeight = document.getElementById("content");
+          contentHeight.scrollTop = contentHeight.scrollHeight;
+        });
       }
     },
+    pingjia(index) {
+      this.selected = index;
+    },
+    // reply(index) {
+    //   //
+    //   console.log(index)
+    //   if (index == 1) {
+    //     this.duihuaList.push({text:'1111'})
+    //   }else if(index ==2){
+    //       this.duihuaList.push({text:'2222'})
+    //   }else if(index ==3){
+    //       this.duihuaList.push({text:'3333'})
+    //   }else if(index ==4){
+    //       this.duihuaList.push({text:'4444'})
+    //   }else if(index ==5){
+    //       this.duihuaList.push({text:'5555'})
+    //   }else if(index ==6){
+    //       this.duihuaList.push({text:'6666'})
+    //   }else if(index ==7){
+    //       this.duihuaList.push({text:'7777'})
+    //   }else if(index ==8){
+    //       this.duihuaList.push({text:'8888'})
+    //   }
+    // },
     close() {
       this.count++;
       if (this.count % 2 == 1) {

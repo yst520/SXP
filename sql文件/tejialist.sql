@@ -1,0 +1,16 @@
+INSERT INTO `tejialist` VALUES (1, 'tj1', '西域美农 玫瑰红葡萄干250g装', 9.90);
+INSERT INTO `tejialist` VALUES (2, 'tj2', '东北香甜黄糯玉米3根', 9.90);
+INSERT INTO `tejialist` VALUES (3, 'tj3', '马上结果【送盆肥】四季草莓苗', 9.90);
+INSERT INTO `tejialist` VALUES (4, 'tj4', '高邮咸鸭蛋 55g*6枚散装', 9.90);
+INSERT INTO `tejialist` VALUES (5, 'tj5', '红豆薏米茶150g 三件七折', 9.88);
+INSERT INTO `tejialist` VALUES (6, 'tj6', '零趣酸奶山楂球238g【约90颗】', 9.88);
+INSERT INTO `tejialist` VALUES (7, 'tj7', '【第二件半价】砀山贡梨3斤装', 9.90);
+INSERT INTO `tejialist` VALUES (8, 'tj8', '嘉兴粽子早餐蛋黄肉粽140g*2只', 9.90);
+INSERT INTO `tejialist` VALUES (9, 'tj9', '山东大蒜头新鲜干蒜装特大紫白鲜蒜子', 9.90);
+INSERT INTO `tejialist` VALUES (10, 'tj10', '叶菜类新鲜蔬菜 农家菜苏州青 【上海青】', 9.90);
+INSERT INTO `tejialist` VALUES (11, 'tj11', '农点赞 意大利生菜种子四季球形种子蔬菜籽种子蔬菜种子大全蔬菜种植种子盆栽种子叶菜类', 9.90);
+INSERT INTO `tejialist` VALUES (12, 'tj12', '四川丑橘不知火橘子桔子桔橘生鲜', 9.80);
+INSERT INTO `tejialist` VALUES (13, 'tj13', '四川丑橘不知火橘子桔子桔橘生鲜', 9.90);
+INSERT INTO `tejialist` VALUES (14, 'tj14', '麻阳冰糖橙 新鲜采摘甜橙子当季皮薄多汁', 9.90);
+INSERT INTO `tejialist` VALUES (15, 'tj15', ' 生鲜蜜橘子 新鲜桔子 5斤实惠装', 9.90);
+INSERT INTO `tejialist` VALUES (16, 'tj16', '	\r\n西域美农 陕西绿心猕猴桃 中果30枚装 单果60-90g 奇异果 生鲜 新鲜', 9.90);

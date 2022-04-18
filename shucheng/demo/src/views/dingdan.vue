@@ -7,7 +7,7 @@
         <router-link to="/" class="toHome">首页</router-link>
         <router-link to="/info" class="toInfo">个人中心</router-link>
         <el-button type="succcess" plain icon="el-icon-s-goods"
-          >我的购物车</el-button
+          ><router-link to="/gouwuche">我的购物车</router-link></el-button
         >
         <el-input v-model="searchValue" placeholder="请输入内容"></el-input>
       </div>

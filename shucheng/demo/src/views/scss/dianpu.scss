@@ -1,6 +1,5 @@
 #dianpu {
     text-align: left;
-
     .dp-header {
         position: relative;
         width: 100%;
@@ -21,9 +20,11 @@
             transform: translate(-50%, -50%);
             width: 400px;
         }
-        .el-input__inner:focus{
+
+        .el-input__inner:focus {
             border-color: #00c65d;
         }
+
         .el-button {
             float: right;
             margin-top: 38px;
@@ -75,14 +76,16 @@
             font-size: 40px;
             text-align: center;
         }
-        .hua1{
+
+        .hua1 {
             position: absolute;
             bottom: 0;
             left: 0;
             height: 80px;
             width: auto;
         }
-        .hua2{
+
+        .hua2 {
             position: absolute;
             bottom: 0;
             right: 0;
@@ -90,93 +93,197 @@
             width: auto;
         }
     }
+    .sortingBar {
+        text-align: center;
+        position: sticky;
+        top: -1px;
+        width: 1200px;
+        height: 40px;
+        box-sizing: border-box;
+        border-top: 1px solid #dfdfdf;
+        border-bottom: 1px solid #dfdfdf;
+        margin: 20px auto;
+        overflow: hidden;
+        background-color: #f4f4f5;
 
+        ul {
+            .li {
+                float: left;
+                line-height: 36px;
+                padding: 0 28px;
+                border: 1px solid #f4f4f5;
+                &:hover {
+                    color: #00c65d;
+                }
+            }
+
+            .Green {
+                float: left;
+                line-height: 36px;
+                padding: 0 28px;
+                border: 1px solid #06b077;
+                color: #06b077;
+            }
+
+        }
+        .pagination{
+        //    width: 700px;
+           float: right;
+        }
+        .pagination-container {
+            background: #f4f4f5;
+            padding: 3px 16px;
+        }
+        .el-pagination.is-background .el-pager li:not(.disabled).active{
+            background-color:#06b077;
+        }
+        .el-pagination.is-background .el-pager li:not(:first-child):hover {
+            color: #06b077;
+        }
+
+    }
     .dp-main {
         width: 1200px;
         margin: 0 auto;
         overflow: hidden;
 
-        .sort {
-            margin: 14px 0;
-
-            >span {
-                margin-top: 14px;
-                color: #333;
-                padding: 4px 10px;
-                font-size: 13px;
-                border: 1px solid #e1e1e1;
-
-                &:hover {
-                    border: 1px solid #06b077;
-                    color: #06b077;
-                }
-            }
-
-            .Green {
-                border: 1px solid #06b077;
-                color: #06b077;
-            }
-        }
-        .sideBar{
+        .sideBar {
+            float: left;
             width: 200px;
-            height:auto;
+            height: auto;
             overflow: hidden;
             margin-bottom: 80px;
-            .side-top{
+
+            .side-top {
                 text-align: center;
                 margin-top: 38px;
-                span{
+
+                span {
                     color: #999;
                     font-size: 13px;
                 }
-                h2{
+
+                h2 {
                     position: relative;
                     font-size: 25px;
                     font-weight: normal;
-                    &::before{
-                        content:'·';
+
+                    &::before {
+                        content: '·';
                         position: absolute;
                         left: 14px;
                         top: 5px;
                         font-weight: 700;
                         font-size: 30px;
                     }
-                    &::after{
-                        content:'·';
+
+                    &::after {
+                        content: '·';
                         position: absolute;
                         right: 14px;
                         top: 5px;
                         font-weight: 700;
                         font-size: 30px;
-                        
+
                     }
                 }
             }
-            ul{
+
+            ul {
                 margin-top: 14px;
-                li{
+
+                li {
                     line-height: 44px;
                     height: 44px;
-                    text-align: left;
                     font-weight: 700;
                     font-size: 15px;
-                    border-bottom:1px dotted #999;
+                    border-bottom: 1px dotted #999;
                     box-sizing: border-box;
                     padding-left: 20px;
-                    i{
+
+                    i {
                         float: right;
                         margin-right: 10px;
                         margin-top: 14px;
                     }
                 }
             }
-            
+
         }
-        .list{
+
+        .list {
+            float: left;
             width: 1000px;
             height: auto;
+            box-sizing: border-box;
+            padding-top: 62px;
             overflow: hidden;
-            
+            margin-bottom: 80px;
+
+            li {
+                float: left;
+                border: 1px solid #ddd;
+                width: 228px;
+                height: 330px;
+                overflow: hidden;
+                margin-left: 20px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+                padding: 10px;
+
+                .imgBox {
+                    width: 208px;
+                    height: 208px;
+                    box-sizing: border-box;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .price {
+                    margin: 6px 0;
+                    color: #E4393C;
+                    font-size: 18px;
+
+                    &::before {
+                        content: '￥';
+
+                    }
+                }
+
+                .describe {
+                    font-size: 14px;
+                    margin-bottom: 8px;
+                    color: #666;
+                    //两行
+                    text-overflow: -o-ellipsis-lastline;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+
+                .pingjia {
+                    font-size: 13px;
+                    color: #164273;
+
+                    &::before {
+                        content: '已有';
+                        color: #999;
+                        font-size: 13px;
+                    }
+
+                    &::after {
+                        content: '人评价';
+                        color: #999;
+                        font-size: 13px;
+                    }
+                }
+            }
         }
 
     }

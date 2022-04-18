@@ -14,6 +14,13 @@ export function getTejiaList(query) {
     params: query
   })
 }
+export function getDianpuList(query) {
+  return request({
+    url: '/stu/dianpuList',
+    method: 'get',
+    params: query
+  })
+}
 export function getShichiList(query) {
   return request({
     url: '/stu/shichiList',

@@ -4,7 +4,7 @@ const boom = require('boom')
 const Result = require('../model/Result')
 const router = express.Router()
 // const { insert } = require('../db/index')
-const {deleteCollect,updateInfo,updateFavorites,deleteFavorites,insertFavorites,getCollectList,getFavoritesList,getYouxuanList,getShichiList,getTejiaList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList,insertGoods,sendAdmin,updateGoods,updateShenhe,isNew,deleteGoods,deleteShenhe} = require('../service/goods')
+const {getDianpuList,deleteCollect,updateInfo,updateFavorites,deleteFavorites,insertFavorites,getCollectList,getFavoritesList,getYouxuanList,getShichiList,getTejiaList,getGoodsList,getShenheList,getXiajiaList,getDingdanList,getCartList,insertGoods,sendAdmin,updateGoods,updateShenhe,isNew,deleteGoods,deleteShenhe} = require('../service/goods')
 //优选数据
 router.get('/youxuanList',(req,res,next)=>{
   getYouxuanList(req.query).then(({list,count,page,pageSize})=>{
@@ -32,6 +32,14 @@ router.get('/shichiList',(req,res,next)=>{
 router.get('/goodsList',(req,res,next)=>{
   getGoodsList(req.query).then(({list,count,page,pageSize})=>{
     new Result({list,count,page:+page,pageSize:+pageSize},'获取商品列表成功').success(res)
+  }).catch(err=>{ 
+    next(boom.badImplementation(err))
+  })
+})
+//店铺数据
+router.get('/dianpuList',(req,res,next)=>{
+  getDianpuList(req.query).then(({list,count,page,pageSize})=>{
+    new Result({list,count,page:+page,pageSize:+pageSize},'获取店铺数据成功').success(res)
   }).catch(err=>{ 
     next(boom.badImplementation(err))
   })

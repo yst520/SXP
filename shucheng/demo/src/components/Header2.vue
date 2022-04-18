@@ -4,7 +4,7 @@
       <img src="./img/logo.png" alt="" />
     </div>
     <div class="search">
-      <el-input v-model="input" placeholder="开启美好生活！"></el-input>
+      <el-input v-model="search"  @keyup.enter="toSearch" placeholder="开启美好生活！"></el-input>
       <div class="remen">
         <a href="">生鲜企采</a>
         <a href="">鸡蛋</a>
@@ -14,17 +14,12 @@
       </div>
     </div>
     <div class="icons">
-      <!-- <router-link to="/gouwuche"><i class="el-icon-goods"></i> 购物车</router-link> -->
       <el-badge :value="220" :max="99" class="item" >
         <el-button size="small" @click="toGouwuche">购物车</el-button>
       </el-badge>
       <el-badge :value="120" :max="99" class="item" >
         <el-button size="small" @click="toCollect">收藏夹</el-button>
       </el-badge>
-      <!-- <el-button type="danger" plain>购物车<i class="el-icon-shopping-cart-2"></i></el-button> -->
-      <!-- <router-link to="/gouwuche"
-        ><i class="el-icon-star-off"></i> 收藏夹</router-link
-      > -->
     </div>
   </div>
 </template>
@@ -35,11 +30,14 @@ export default {
   props: [""],
   data() {
     return {
-      input: "",
+      search: "",
     };
   },
   created() {},
   methods: {
+    toSearch(){
+      this.$router.push({ path: `/fruit/${this.search}` });
+    },
     toGouwuche(){
       this.$router.push('/gouwuche')
     },

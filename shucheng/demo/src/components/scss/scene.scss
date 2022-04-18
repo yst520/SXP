@@ -30,25 +30,29 @@
                 background-color: #fffbf2;
 
                 // transform: translateX(-50%);
-                ul li {
+                .menu-item {
                     position: relative;
                     float: none;
                     color: #fff;
                     height: 80px;
                     box-sizing: border-box;
-                    padding: 18px 0 0 40px;
+                    padding: 6px 0 0 52px;
                     text-align: left;
-                    margin: 0 10px;
-                    border-top: 1px dotted #ddd;
+                    // margin: 0 10px;
+                    border-bottom: 1px solid #ddd;
 
                     &:hover {
-                        border-bottom: 2px solid #dddddd;
                         background-color: #fff;
+
+                        p {
+                            color: #00c65d;
+                        }
                     }
+
 
                     i {
                         position: absolute;
-                        left: 5px;
+                        left: 16px;
                         top: 30px;
                         width: 26px;
                         height: 26px;
@@ -78,7 +82,7 @@
                         background-position: -56px 0;
                     }
 
-                    a {
+                    p {
                         position: relative;
                         text-decoration: none;
                         color: #222;
@@ -88,14 +92,14 @@
                             content: ">";
                             position: absolute;
                             left: 120px;
-                            top: 0;
+                            top: 13px;
                             height: 19px;
                             line-height: 19px;
                             font-family: simsun;
                         }
                     }
 
-                    >div {
+                    .branch {
                         line-height: 0px;
 
                         >span {
@@ -103,6 +107,9 @@
                             border-right: 1px solid #ccc;
                             color: #999;
                             font-size: 12px;
+                            &:hover{
+                                color: #00c65d;
+                            }
                         }
 
                         >span:nth-child(1) {
@@ -114,16 +121,75 @@
                         }
                     }
 
+                    .bian {
+                        display: none;
+                        position: absolute;
+                        right: -1px;
+                        top: 0;
+                        z-index: 5;
+                        width: 2px;
+                        height: 78px;
+                        background-color: #fff;
+                    }
+
+                    &:hover .bian {
+                        display: block;
+                    }
+
+                    .menu-detail {
+                        position: absolute;
+                        left: 200px;
+                        // top: 0;
+                        width: 1000px;
+                        height: 400px;
+                        text-align: left;
+                        border: 1px solid #ddd;
+                        box-sizing: border-box;
+                        line-height: 22px;
+                        padding: 20px 100px 10px 40px;
+                        background-color: #fff;
+                        span {
+                            font-size: 13px;
+                            color: #666;
+                        }
+                        .menu-box {
+                            margin-bottom: 6px;
+
+                            span {
+                                border-right: 1px solid #e0e0e0;
+                                margin: 4px 0;
+                                padding: 0 10px;
+
+                                &:nth-child(1) {
+                                    font-weight: 700;
+                                    display: inline-block;
+                                    padding-left: 0;
+
+                                }
+
+                                &:hover {
+                                    color: #00c65d;
+                                }
+
+                            }
+                        }
+
+
+                    }
+
                 }
+
             }
         }
 
         .scene-detail {
             flex: 1;
             text-align: left;
-            .router-link-active{
+
+            .router-link-active {
                 color: #00c65d;
             }
+
             // background-color: palevioletred;
 
             a {

@@ -50,7 +50,7 @@ const routes = [
   },
   // 分类
   {
-    path:'/fruit',
+    path:'/fruit/:text',
     name:'Fruit',
     component: () => import('../views/fruit.vue'),
     meta:{show:true,header2:true,scene:false,}

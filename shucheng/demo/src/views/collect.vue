@@ -60,6 +60,7 @@ export default {
         sort: "+id",
         token: "",
       },
+      total:0,
     };
   },
   created() {
@@ -101,8 +102,8 @@ export default {
     getList() {
       this.listQuery.token = this.$store.getters.token;
       getCollectList(this.listQuery).then((response) => {
-        this.total = response.data.count;
-        this.collectList = response.data.list;
+        // this.total = response.data.count;
+        // this.collectList = response.data.list;
       });
     },
   },
